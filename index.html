@@ -3,82 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My CV Website</title>
+
+    <title>Muhammad Farhan Ramzan | Portfolio</title>
+
+    <meta name="description"
+          content="Official portfolio of Muhammad Farhan Ramzan, Computer Science student at MNS University of Engineering and Technology, Multan.">
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #080d18;
+            --card: #111a2b;
+            --blue: #38bdf8;
+            --white: #f8fafc;
+            --muted: #a6b3c8;
         }
 
         body {
             font-family: Arial, sans-serif;
-            background: #f1f5f9;
-            color: #1e293b;
-            line-height: 1.6;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.7;
         }
 
-        header {
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #cbd5e1;
-        }
-
-        nav {
-            margin-top: 20px;
-        }
-
-        nav a {
-            color: white;
+        a {
+            color: inherit;
             text-decoration: none;
-            margin: 0 10px;
         }
 
         .container {
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 0 20px;
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 13, 24, 0.96);
+            border-bottom: 1px solid #243047;
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--blue);
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--blue);
         }
 
         section {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px #0000000d;
+            padding: 80px 0;
+            scroll-margin-top: 70px;
         }
 
-        h2 {
-            color: #2563eb;
+        .hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .tag {
+            color: var(--blue);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.2;
+            margin: 18px 0;
+        }
+
+        h1 span,
+        .highlight {
+            color: var(--blue);
+        }
+
+        .intro {
+            color: var(--muted);
+            max-width: 620px;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            border: 1px solid var(--blue);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: #08111e;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.85;
+        }
+
+        .photo-placeholder {
+            width: 260px;
+            height: 260px;
+            margin: auto;
+            border-radius: 50%;
+            border: 4px solid var(--blue);
+            background: linear-gradient(135deg, #162b49, #0a1220);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
+        }
+
+        .photo-placeholder .initials {
+            font-size: 65px;
+            font-weight: bold;
+            color: var(--blue);
+        }
+
+        .photo-placeholder small {
+            color: var(--muted);
+        }
+
+        .section-title {
+            font-size: 34px;
+            text-align: center;
             margin-bottom: 12px;
         }
 
-        footer {
-            background: #0f172a;
-            color: white;
+        .section-subtitle {
+            color: var(--muted);
             text-align: center;
-            padding: 20px;
+            margin-bottom: 40px;
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 28px;
+        .about-box,
+        .education-box {
+            background: var(--card);
+            border: 1px solid #243047;
+            border-radius: 14px;
+            padding: 30px;
+        }
+
+        .about-box p {
+            color: var(--muted);
+        }
+
+        .skills-grid,
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card,
+        .social-card {
+            background: var(--card);
+            border: 1px solid #243047;
+            border-radius: 12px;
+            padding: 23px;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover,
+        .social-card:hover {
+            border-color: var(--blue);
+            transform: translateY(-4px);
+        }
+
+        .skill-card h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .education-box h3 {
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .education-box p {
+            color: var(--muted);
+        }
+
+        .social-card {
+            display: block;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .social-card span {
+            display: block;
+            color: var(--blue);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .contact-box {
+            background: var(--card);
+            border: 1px solid #243047;
+            border-radius: 14px;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin: 12px 0;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            border-top: 1px solid #243047;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 760px) {
+            nav {
+                padding: 15px 0;
+                flex-direction: column;
             }
 
-            nav a {
-                display: inline-block;
-                margin: 5px;
+            .nav-links {
+                justify-content: center;
+                gap: 12px 18px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding-top: 55px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .photo-placeholder {
+                width: 210px;
+                height: 210px;
+            }
+
+            .skills-grid,
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .skills-grid,
+            .social-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -86,57 +322,267 @@
 
 <body>
 
-    <header>
-        <h1>Your Name</h1>
-        <p>Computer Science Student | Future Web Developer</p>
+<header>
+    <nav class="container">
+        <a href="#home" class="logo">MFR.</a>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#social">Social Links</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main class="container">
+<main>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Hello! I am a Computer Science student.
-                I am interested in technology, programming
-                and web development.
+    <!-- HOME SECTION -->
+    <section class="hero container" id="home">
+        <div class="hero-content">
+
+            <div>
+                <p class="tag">Welcome to my portfolio</p>
+
+                <h1>
+                    Hi, I'm<br>
+                    <span>Muhammad Farhan Ramzan</span>
+                </h1>
+
+                <h2 class="highlight">Computer Science Student</h2>
+
+                <p class="intro">
+                    A motivated student passionate about digital tools,
+                    creative design, e-commerce research, and continuous
+                    professional growth.
+                </p>
+
+                <div class="buttons">
+                    <a href="#skills" class="btn btn-primary">
+                        Explore My Skills
+                    </a>
+
+                    <a href="#contact" class="btn">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <div class="photo-placeholder" aria-label="Profile photo placeholder">
+                <div class="initials">MFR</div>
+                <small>Profile photo coming soon</small>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            <p class="section-subtitle">A little introduction about myself</p>
+
+            <div class="about-box">
+                <p>
+                    I am Muhammad Farhan Ramzan, a motivated Computer Science
+                    student pursuing a BS in Computer Science at MNS University
+                    of Engineering and Technology, Multan. I have skills in
+                    Microsoft Office, graphic design, Canva, Amazon product
+                    research, and Shopify store management. I am passionate
+                    about learning new skills, developing practical experience,
+                    and exploring opportunities that help me grow professionally.
+                    I value creativity, communication, time management, and
+                    problem-solving.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+            <p class="section-subtitle">
+                Tools and skills I have experience with
             </p>
-        </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <p><strong>My Qualification:</strong> Add your degree here.</p>
-            <p><strong>Institute:</strong> Add your college name.</p>
-        </section>
+            <div class="skills-grid">
 
-        <section id="skills">
-            <h2>My Skills</h2>
-            <p>Computer Science, Communication, Problem Solving</p>
-        </section>
+                <div class="skill-card">
+                    <h3>Microsoft Word</h3>
+                    <p>Document creation and formatting.</p>
+                </div>
 
-        <section id="projects">
-            <h2>My Projects</h2>
-            <p><strong>My First Website:</strong> Personal CV Website.</p>
-        </section>
+                <div class="skill-card">
+                    <h3>Microsoft Excel</h3>
+                    <p>Spreadsheets and data organization.</p>
+                </div>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>Email: your.email@example.com</p>
-            <p>Location: Pakistan</p>
-        </section>
+                <div class="skill-card">
+                    <h3>Microsoft PowerPoint</h3>
+                    <p>Presentation design and formatting.</p>
+                </div>
 
-    </main>
+                <div class="skill-card">
+                    <h3>Canva Design</h3>
+                    <p>Creating visual content and designs.</p>
+                </div>
 
-    <footer>
-        <p>Copyright &copy; 2026 Your Name</p>
-    </footer>
+                <div class="skill-card">
+                    <h3>Graphic Design</h3>
+                    <p>Creative visual communication.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Amazon Product Research</h3>
+                    <p>Product hunting and market research.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Shopify Store Management</h3>
+                    <p>Store management and e-commerce tasks.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Communication</h3>
+                    <p>Clear and professional communication.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Time Management</h3>
+                    <p>Organizing tasks and priorities.</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Problem Solving</h3>
+                    <p>Analytical thinking and practical solutions.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">My <span class="highlight">Education</span></h2>
+            <p class="section-subtitle">My academic background</p>
+
+            <div class="education-box">
+                <h3>BS Computer Science</h3>
+
+                <p>
+                    MNS University of Engineering and Technology, Multan
+                </p>
+
+                <p>Currently studying — 3rd Semester</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL LINKS SECTION -->
+    <section id="social">
+        <div class="container">
+            <h2 class="section-title">Connect With <span class="highlight">Me</span></h2>
+
+            <p class="section-subtitle">
+                Find me on social media
+            </p>
+
+            <div class="social-grid">
+
+                <a class="social-card"
+                   href="https://www.linkedin.com/in/muhammad-farhan-ramzan-7b9683389/"
+                   target="_blank" rel="noopener noreferrer">
+                    <span>in</span>
+                    LinkedIn
+                </a>
+
+                <a class="social-card"
+                   href="https://www.facebook.com/share/1CFvouWQ95/"
+                   target="_blank" rel="noopener noreferrer">
+                    <span>f</span>
+                    Facebook
+                </a>
+
+                <a class="social-card"
+                   href="https://www.tiktok.com/@aspirianboy08"
+                   target="_blank" rel="noopener noreferrer">
+                    <span>♪</span>
+                    TikTok
+                </a>
+
+                <a class="social-card"
+                   href="https://www.youtube.com/@farhanfano_207"
+                   target="_blank" rel="noopener noreferrer">
+                    <span>▶</span>
+                    YouTube
+                </a>
+
+                <a class="social-card"
+                   href="https://www.instagram.com/mfr.official07/"
+                   target="_blank" rel="noopener noreferrer">
+                    <span>◎</span>
+                    Instagram
+                </a>
+
+                <a class="social-card"
+                   href="https://github.com/farhanfano"
+                   target="_blank" rel="noopener noreferrer">
+                    <span>&lt;/&gt;</span>
+                    GitHub
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact <span class="highlight">Me</span></h2>
+            <p class="section-subtitle">
+                Feel free to get in touch
+            </p>
+
+            <div class="contact-box">
+                <h3>Let's Connect!</h3>
+
+                <p>
+                    For professional inquiries, collaboration, or opportunities,
+                    feel free to send me an email.
+                </p>
+
+                <p>
+                    <strong>Email:</strong> farhanfano608@gmail.com
+                </p>
+
+                <div class="buttons" style="justify-content:center;">
+                    <a class="btn btn-primary"
+                       href="mailto:farhanfano608@gmail.com">
+                        Send Me an Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <p>
+            &copy; <span id="year"></span> Muhammad Farhan Ramzan.
+            All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
