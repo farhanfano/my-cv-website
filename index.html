@@ -4,32 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description"
+          content="Muhammad Farhan Ramzan's professional portfolio. Computer Science student skilled in digital design, Microsoft Office, e-commerce research and Shopify store management.">
+
+    <meta name="theme-color" content="#080d18">
+
     <title>Muhammad Farhan Ramzan | Portfolio</title>
 
-    <meta name="description"
-          content="Official portfolio of Muhammad Farhan Ramzan, Computer Science student at MNS University of Engineering and Technology, Multan.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
 
     <style>
+        :root {
+            --bg: #080d18;
+            --bg-soft: #0c1424;
+            --card: #111b2d;
+            --card-hover: #16233a;
+            --blue: #48c8ff;
+            --purple: #a78bfa;
+            --text: #f5f8ff;
+            --muted: #a4b2c8;
+            --border: rgba(148, 163, 184, 0.17);
+            --radius: 18px;
+            --container: 1140px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            scroll-behavior: smooth;
         }
 
-        :root {
-            --bg: #080d18;
-            --card: #111a2b;
-            --blue: #38bdf8;
-            --white: #f8fafc;
-            --muted: #a6b3c8;
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Inter", sans-serif;
             background: var(--bg);
-            color: var(--white);
+            color: var(--text);
             line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body, button, input, textarea {
+            font-family: "Inter", sans-serif;
         }
 
         a {
@@ -37,284 +60,1019 @@
             text-decoration: none;
         }
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
-        header {
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(92%, var(--container));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 95px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-soft);
+        }
+
+        .section-heading {
+            max-width: 700px;
+            text-align: center;
+            margin: 0 auto 48px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--blue);
+            font-size: 0.77rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 13px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Space Grotesk", sans-serif;
+            line-height: 1.2;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 14px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .gradient-text {
+            color: var(--blue);
+            background: linear-gradient(100deg, var(--blue), var(--purple));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            min-height: 48px;
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            transition: transform 0.25s, background 0.25s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            color: #06111e;
+            border-color: transparent;
+            background: linear-gradient(110deg, var(--blue), #8be5ff);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        /* HEADER */
+
+        .header {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(8, 13, 24, 0.96);
-            border-bottom: 1px solid #243047;
+            z-index: 1000;
+            background: rgba(8, 13, 24, 0.92);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(18px);
         }
 
-        nav {
-            min-height: 75px;
+        .nav {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            justify-content: space-between;
+            min-height: 78px;
+            gap: 25px;
         }
 
-        .logo {
+        .brand {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            white-space: nowrap;
+        }
+
+        .brand span {
             color: var(--blue);
-            font-size: 25px;
-            font-weight: bold;
         }
 
         .nav-links {
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            align-items: center;
+            gap: 23px;
             list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.84rem;
+            color: var(--muted);
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
             color: var(--blue);
         }
 
-        section {
-            padding: 80px 0;
-            scroll-margin-top: 70px;
+        .menu-toggle {
+            display: none;
+            color: var(--text);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 9px 12px;
+            font-size: 1.2rem;
         }
+
+        /* HERO */
 
         .hero {
-            min-height: 570px;
+            min-height: 670px;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-content {
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            top: 70px;
+            right: -130px;
+            background: rgba(56, 189, 248, 0.10);
+            filter: blur(100px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
+            grid-template-columns: 1.3fr 0.7fr;
             align-items: center;
-            gap: 50px;
+            gap: 70px;
+            padding: 65px 0;
+            position: relative;
         }
 
-        .tag {
-            color: var(--blue);
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 13px;
-        }
-
-        h1 {
-            font-size: clamp(36px, 5vw, 58px);
-            line-height: 1.2;
-            margin: 18px 0;
-        }
-
-        h1 span,
-        .highlight {
-            color: var(--blue);
-        }
-
-        .intro {
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 13px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.025);
             color: var(--muted);
-            max-width: 620px;
+            border-radius: 30px;
+            font-size: 0.8rem;
             margin-bottom: 25px;
         }
 
-        .buttons {
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 12px #4ade80;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 4.65rem);
+            letter-spacing: -2.7px;
+            margin-bottom: 20px;
+        }
+
+        .hero-role {
+            font-size: clamp(1.1rem, 2.4vw, 1.55rem);
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--muted);
+            font-size: 1rem;
+        }
+
+        .hero-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 25px;
+            gap: 13px;
+            margin-top: 30px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 22px;
-            border-radius: 8px;
-            border: 1px solid var(--blue);
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--blue);
-            color: #08111e;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            opacity: 0.85;
-        }
-
-        .photo-placeholder {
-            width: 260px;
-            height: 260px;
-            margin: auto;
-            border-radius: 50%;
-            border: 4px solid var(--blue);
-            background: linear-gradient(135deg, #162b49, #0a1220);
+        .hero-socials {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 0 40px rgba(56, 189, 248, 0.15);
+            flex-wrap: wrap;
+            gap: 19px;
+            margin-top: 30px;
         }
 
-        .photo-placeholder .initials {
-            font-size: 65px;
-            font-weight: bold;
+        .hero-socials a {
+            color: var(--muted);
+            font-size: 0.86rem;
+            font-weight: 600;
+        }
+
+        .hero-socials a:hover {
             color: var(--blue);
         }
 
-        .photo-placeholder small {
-            color: var(--muted);
+        .portrait-wrap {
+            position: relative;
+            width: min(100%, 330px);
+            margin-inline: auto;
         }
 
-        .section-title {
-            font-size: 34px;
+        .portrait-frame {
+            width: 100%;
+            aspect-ratio: 0.82;
+            padding: 10px;
+            border-radius: 160px 160px 35px 35px;
+            background: linear-gradient(145deg, var(--blue), #5b5eea, #1b2a44);
+            box-shadow: 0 0 75px rgba(72, 200, 255, 0.13);
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 155px 155px 29px 29px;
+            background: #101a2a;
+        }
+
+        .portrait-placeholder {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            margin-bottom: 12px;
+            background: linear-gradient(145deg, #13253c, #0b1220);
+            border-radius: 155px 155px 29px 29px;
+            padding: 25px;
         }
 
-        .section-subtitle {
+        .portrait-placeholder strong {
+            font-family: "Space Grotesk", sans-serif;
+            color: var(--blue);
+            font-size: 4rem;
+        }
+
+        .portrait-placeholder span {
             color: var(--muted);
-            text-align: center;
-            margin-bottom: 40px;
+            font-size: 0.8rem;
         }
 
-        .about-box,
-        .education-box {
+        .floating-badge {
+            position: absolute;
+            bottom: 35px;
+            left: -38px;
+            padding: 13px 17px;
+            border-radius: 13px;
+            border: 1px solid var(--border);
+            background: #111b2d;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            font-size: 0.82rem;
+        }
+
+        .floating-badge strong {
+            display: block;
+            color: var(--blue);
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .panel {
             background: var(--card);
-            border: 1px solid #243047;
-            border-radius: 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
             padding: 30px;
         }
 
-        .about-box p {
+        .panel h3 {
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+        }
+
+        .panel p {
+            color: var(--muted);
+            margin-bottom: 13px;
+        }
+
+        .fact-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .fact {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding-bottom: 13px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .fact:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .fact span:first-child {
             color: var(--muted);
         }
 
-        .skills-grid,
-        .social-grid {
+        .fact span:last-child {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        /* EDUCATION */
+
+        .education-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .education-item {
+            display: grid;
+            grid-template-columns: 65px 1fr;
+            gap: 22px;
+            padding: 27px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--card);
+        }
+
+        .education-icon {
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            border-radius: 15px;
+            color: var(--blue);
+            background: rgba(72,200,255,0.10);
+            font-size: 1.6rem;
+        }
+
+        .education-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .education-item p {
+            color: var(--muted);
+        }
+
+        .education-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .pill {
+            display: inline-flex;
+            padding: 6px 10px;
+            border-radius: 7px;
+            color: var(--blue);
+            background: rgba(72,200,255,0.08);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* SKILLS */
+
+        .skill-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 9px 16px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            background: var(--card);
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: #06111e;
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .skills-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
         }
 
-        .skill-card,
-        .social-card {
+        .skill-card {
+            padding: 25px;
             background: var(--card);
-            border: 1px solid #243047;
-            border-radius: 12px;
-            padding: 23px;
-            transition: 0.3s;
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            transition: transform .25s, border-color .25s;
         }
 
-        .skill-card:hover,
-        .social-card:hover {
-            border-color: var(--blue);
-            transform: translateY(-4px);
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(72,200,255,0.65);
+        }
+
+        .skill-card.hidden {
+            display: none;
+        }
+
+        .skill-icon {
+            width: 53px;
+            height: 53px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            border-radius: 13px;
+            background: linear-gradient(145deg, rgba(72,200,255,0.17), rgba(167,139,250,0.12));
+            font-size: 1.65rem;
         }
 
         .skill-card h3 {
-            font-size: 17px;
-            margin-bottom: 8px;
+            font-size: 1.05rem;
+            margin-bottom: 9px;
         }
 
         .skill-card p {
+            min-height: 48px;
+            font-size: 0.87rem;
             color: var(--muted);
-            font-size: 14px;
         }
 
-        .education-box h3 {
-            color: var(--blue);
+        .skill-level {
+            height: 5px;
+            margin-top: 19px;
+            overflow: hidden;
+            border-radius: 5px;
+            background: #263247;
+        }
+
+        .skill-level span {
+            display: block;
+            height: 100%;
+            border-radius: 5px;
+            background: linear-gradient(90deg, var(--blue), var(--purple));
+        }
+
+        .skill-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+            margin-top: 24px;
+        }
+
+        /* EXPERIENCE */
+
+        .experience-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 13px;
+        }
+
+        .experience-card p,
+        .experience-card li {
+            color: var(--muted);
+        }
+
+        .experience-card ul {
+            padding-left: 21px;
+        }
+
+        .experience-card li {
+            margin-bottom: 10px;
+        }
+
+        /* VIDEO */
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .video-card {
+            overflow: hidden;
+            border-radius: var(--radius);
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        .video-frame {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            display: block;
+            background: #101b2c;
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info h3 {
             margin-bottom: 8px;
         }
 
-        .education-box p {
+        .video-info p {
             color: var(--muted);
+            font-size: 0.87rem;
+        }
+
+        .video-placeholder {
+            display: grid;
+            place-items: center;
+            min-height: 220px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .video-placeholder a {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        /* CV */
+
+        .cv-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 45px;
+            border: 1px solid rgba(72,200,255,0.3);
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 90% 20%, rgba(72,200,255,.12), transparent 30%),
+                linear-gradient(120deg, #111b2d, #0d1728);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cv-panel h3 {
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+        }
+
+        .cv-panel p {
+            color: var(--muted);
+            max-width: 620px;
+        }
+
+        .cv-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* LANGUAGES */
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .language-card {
+            padding: 25px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            text-align: center;
+        }
+
+        .language-card strong {
+            font-size: 1.1rem;
+        }
+
+        .language-card p {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        /* SOCIAL */
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 17px;
         }
 
         .social-card {
-            display: block;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .social-card span {
-            display: block;
-            color: var(--blue);
-            font-size: 22px;
-            margin-bottom: 8px;
-        }
-
-        .contact-box {
-            background: var(--card);
-            border: 1px solid #243047;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 21px;
+            border: 1px solid var(--border);
             border-radius: 14px;
-            text-align: center;
-            padding: 35px 20px;
+            background: var(--card);
+            transition: transform .25s, border-color .25s;
         }
 
-        .contact-box p {
+        .social-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--blue);
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            border-radius: 12px;
+            background: rgba(72,200,255,.10);
+            color: var(--blue);
+            font-weight: 800;
+        }
+
+        .social-card small {
+            display: block;
             color: var(--muted);
-            margin: 12px 0;
+            font-size: 0.78rem;
             overflow-wrap: anywhere;
         }
 
-        footer {
-            padding: 25px 0;
-            text-align: center;
-            border-top: 1px solid #243047;
-            color: var(--muted);
-            font-size: 14px;
+        /* REVIEWS */
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
-        @media (max-width: 760px) {
-            nav {
-                padding: 15px 0;
-                flex-direction: column;
+        .review-card {
+            padding: 27px;
+            border-radius: var(--radius);
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .review-card p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .review-card strong {
+            display: block;
+        }
+
+        .review-card small {
+            color: var(--muted);
+        }
+
+        .review-form {
+            max-width: 720px;
+            margin: 35px auto 0;
+            padding: 30px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        .review-form h3 {
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 0.87rem;
+            font-weight: 600;
+        }
+
+        .field input,
+        .field textarea,
+        .field select {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            outline: none;
+            background: #0b1423;
+            color: var(--text);
+            font-size: 0.92rem;
+        }
+
+        .field input:focus,
+        .field textarea:focus,
+        .field select:focus {
+            border-color: var(--blue);
+        }
+
+        .field textarea {
+            resize: vertical;
+            min-height: 115px;
+        }
+
+        .form-note {
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 0.79rem;
+        }
+
+        .status-message {
+            color: var(--blue);
+            margin-top: 12px;
+            overflow-wrap: anywhere;
+        }
+
+        /* CONTACT */
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 25px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 15px;
+        }
+
+        .contact-item {
+            padding: 22px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 13px;
+        }
+
+        .contact-item span {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--blue);
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        .contact-item a:hover {
+            color: var(--blue);
+        }
+
+        .contact-form {
+            padding: 28px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            padding: 28px 0;
+            background: #060a12;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer p {
+            color: var(--muted);
+            font-size: 0.84rem;
+        }
+
+        .back-top {
+            color: var(--blue);
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+            .nav-links {
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 0.78rem;
+            }
+
+            .hero-grid {
+                gap: 35px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 14px 0;
             }
 
             .nav-links {
-                justify-content: center;
-                gap: 12px 18px;
-                font-size: 14px;
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 0;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 11px 5px;
+                font-size: 0.92rem;
+            }
+
+            .nav-action {
+                display: none;
             }
 
             .hero {
-                padding-top: 55px;
+                min-height: auto;
             }
 
-            .hero-content {
+            .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 40px;
+                padding: 70px 0;
             }
 
-            .buttons {
+            .hero-description {
+                margin-inline: auto;
+            }
+
+            .hero-buttons,
+            .hero-socials {
                 justify-content: center;
             }
 
-            .photo-placeholder {
-                width: 210px;
-                height: 210px;
+            .portrait-wrap {
+                width: min(75%, 280px);
             }
 
-            .skills-grid,
+            .floating-badge {
+                left: -20px;
+            }
+
+            .about-grid,
+            .experience-card,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
             .social-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            section {
-                padding: 60px 0;
+            .cv-panel {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 30px;
+            }
+
+            .section {
+                padding: 72px 0;
             }
         }
 
-        @media (max-width: 430px) {
+        @media (max-width: 520px) {
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
             .skills-grid,
-            .social-grid {
+            .social-grid,
+            .video-grid,
+            .review-grid,
+            .language-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .education-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 22px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .fact {
+                flex-direction: column;
+                gap: 3px;
+            }
+
+            .fact span:last-child {
+                text-align: left;
+            }
+
+            .cv-buttons,
+            .cv-buttons .btn {
+                width: 100%;
+            }
+
+            .review-form,
+            .contact-form {
+                padding: 21px;
+            }
+
+            .floating-badge {
+                left: -10px;
+                bottom: 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -322,266 +1080,862 @@
 
 <body>
 
-<header>
-    <nav class="container">
-        <a href="#home" class="logo">MFR.</a>
+<!-- HEADER -->
+<header class="header">
+    <nav class="nav container">
+        <a href="#home" class="brand">MFR<span>.</span></a>
 
-        <ul class="nav-links">
+        <button class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
-            <li><a href="#social">Social Links</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#reviews">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <a class="btn btn-primary nav-action" href="#contact">
+            Let's Connect
+        </a>
     </nav>
 </header>
 
 <main>
 
-    <!-- HOME SECTION -->
+    <!-- HERO -->
     <section class="hero container" id="home">
-        <div class="hero-content">
+        <div class="hero-grid">
 
             <div>
-                <p class="tag">Welcome to my portfolio</p>
+                <div class="availability">
+                    <span class="availability-dot"></span>
+                    Computer Science Student · Open to Learning
+                </div>
+
+                <p class="eyebrow">Welcome to my digital space</p>
 
                 <h1>
-                    Hi, I'm<br>
-                    <span>Muhammad Farhan Ramzan</span>
+                    Muhammad<br>
+                    <span class="gradient-text">Farhan Ramzan</span>
                 </h1>
 
-                <h2 class="highlight">Computer Science Student</h2>
-
-                <p class="intro">
-                    A motivated student passionate about digital tools,
-                    creative design, e-commerce research, and continuous
-                    professional growth.
+                <p class="hero-role">
+                    BS Computer Science Student
                 </p>
 
-                <div class="buttons">
-                    <a href="#skills" class="btn btn-primary">
-                        Explore My Skills
+                <p class="hero-description">
+                    I am a motivated Computer Science student interested in
+                    digital design, productivity tools, e-commerce research
+                    and technology. I enjoy learning new skills and turning
+                    ideas into practical work.
+                </p>
+
+                <div class="hero-buttons">
+                    <a class="btn btn-primary" href="#skills">
+                        Explore My Skills →
                     </a>
 
-                    <a href="#contact" class="btn">
-                        Contact Me
+                    <a class="btn btn-secondary" href="#education">
+                        My Education
                     </a>
+                </div>
+
+                <div class="hero-socials">
+                    <a href="https://www.linkedin.com/in/muhammad-farhan-ramzan-7b9683389/"
+                       target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+
+                    <a href="https://www.instagram.com/mfr.official07/"
+                       target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+
+                    <a href="https://www.youtube.com/@farhanfano_207"
+                       target="_blank" rel="noopener noreferrer">YouTube ↗</a>
                 </div>
             </div>
 
-            <div class="photo-placeholder" aria-label="Profile photo placeholder">
-                <div class="initials">MFR</div>
-                <small>Profile photo coming soon</small>
+            <div class="portrait-wrap">
+                <div class="portrait-frame">
+
+                    <!-- Add your picture as profile.jpg in the same folder -->
+                    <div class="portrait-placeholder" id="portraitPlaceholder">
+                        <strong>MFR</strong>
+                        <span>Your profile photo goes here</span>
+                    </div>
+
+                    <img src="profile.jpg"
+                         alt="Muhammad Farhan Ramzan"
+                         id="profileImage"
+                         hidden>
+                </div>
+
+                <div class="floating-badge">
+                    <strong>BS Computer Science</strong>
+                    MNS UET, Multan
+                </div>
             </div>
 
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
+    <!-- ABOUT -->
+    <section class="section section-alt" id="about">
         <div class="container">
-            <h2 class="section-title">About <span class="highlight">Me</span></h2>
-            <p class="section-subtitle">A little introduction about myself</p>
+            <div class="section-heading">
+                <span class="eyebrow">Discover my journey</span>
+                <h2>About <span class="gradient-text">Me</span></h2>
+                <p>A little about my background, interests and goals.</p>
+            </div>
 
-            <div class="about-box">
+            <div class="about-grid">
+                <div class="panel">
+                    <h3>Who Am I?</h3>
+
+                    <p>
+                        I am Muhammad Farhan Ramzan, pursuing a Bachelor of
+                        Science in Computer Science at MNS University of
+                        Engineering and Technology, Multan.
+                    </p>
+
+                    <p>
+                        Alongside my studies, I have developed skills in
+                        Microsoft Office, Canva and graphic design, Amazon
+                        product hunting and market research, and Shopify
+                        store management.
+                    </p>
+
+                    <p>
+                        I am a fresh candidate eager to gain practical
+                        experience, learn from professionals, and contribute
+                        to a team. My goals are to keep improving my abilities,
+                        strengthen my technical foundation, and build a
+                        rewarding career.
+                    </p>
+                </div>
+
+                <div class="panel">
+                    <h3>Quick Information</h3>
+
+                    <div class="fact-list">
+                        <div class="fact">
+                            <span>Full Name</span>
+                            <span>Muhammad Farhan Ramzan</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Degree</span>
+                            <span>BS Computer Science</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>University</span>
+                            <span>MNS UET, Multan</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Current CGPA</span>
+                            <span>3.485 / 4.00</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Experience</span>
+                            <span>Fresh Candidate</span>
+                        </div>
+
+                        <div class="fact">
+                            <span>Interests</span>
+                            <span>Design & E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">My academic background</span>
+                <h2>Education & <span class="gradient-text">Achievements</span></h2>
+                <p>My academic journey so far.</p>
+            </div>
+
+            <div class="education-list">
+
+                <article class="education-item">
+                    <div class="education-icon">🎓</div>
+
+                    <div>
+                        <h3>Bachelor of Science in Computer Science (BSCS)</h3>
+
+                        <p>
+                            MNS University of Engineering and Technology, Multan
+                        </p>
+
+                        <p>2025 – Present</p>
+
+                        <div class="education-meta">
+                            <span class="pill">CGPA: 3.485 / 4.00</span>
+                            <span class="pill">After Two Semesters</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="education-item">
+                    <div class="education-icon">📘</div>
+
+                    <div>
+                        <h3>Intermediate in Computer Science (ICS)</h3>
+
+                        <p>
+                            Aspire Group of College, Basti Malook — BISE Multan
+                        </p>
+
+                        <p>2023 – 2025</p>
+
+                        <div class="education-meta">
+                            <span class="pill">986 / 1200 Marks</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="education-item">
+                    <div class="education-icon">🏫</div>
+
+                    <div>
+                        <h3>Matriculation (Science)</h3>
+
+                        <p>
+                            Ikrash Model High School, Basti Malook — BISE Multan
+                        </p>
+
+                        <p>2021 – 2023</p>
+
+                        <div class="education-meta">
+                            <span class="pill">948 / 1100 Marks</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">What I can do</span>
+                <h2>My <span class="gradient-text">Skills</span></h2>
                 <p>
-                    I am Muhammad Farhan Ramzan, a motivated Computer Science
-                    student pursuing a BS in Computer Science at MNS University
-                    of Engineering and Technology, Multan. I have skills in
-                    Microsoft Office, graphic design, Canva, Amazon product
-                    research, and Shopify store management. I am passionate
-                    about learning new skills, developing practical experience,
-                    and exploring opportunities that help me grow professionally.
-                    I value creativity, communication, time management, and
-                    problem-solving.
+                    A selection of my current digital, creative and
+                    professional skills.
                 </p>
             </div>
-        </div>
-    </section>
 
-    <!-- SKILLS SECTION -->
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">My <span class="highlight">Skills</span></h2>
-            <p class="section-subtitle">
-                Tools and skills I have experience with
-            </p>
+            <div class="skill-filters">
+                <button class="filter-btn active" data-filter="all">All Skills</button>
+                <button class="filter-btn" data-filter="office">Office Tools</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="commerce">E-commerce</button>
+                <button class="filter-btn" data-filter="soft">Professional</button>
+            </div>
 
             <div class="skills-grid">
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="office">
+                    <div class="skill-icon">📝</div>
                     <h3>Microsoft Word</h3>
-                    <p>Document creation and formatting.</p>
-                </div>
+                    <p>Document creation, formatting and professional layouts.</p>
+                    <div class="skill-level"><span style="width:80%"></span></div>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="office">
+                    <div class="skill-icon">📊</div>
                     <h3>Microsoft Excel</h3>
-                    <p>Spreadsheets and data organization.</p>
-                </div>
+                    <p>Spreadsheets, data organization and basic calculations.</p>
+                    <div class="skill-level"><span style="width:75%"></span></div>
+                </article>
 
-                <div class="skill-card">
-                    <h3>Microsoft PowerPoint</h3>
-                    <p>Presentation design and formatting.</p>
-                </div>
+                <article class="skill-card" data-category="office">
+                    <div class="skill-icon">📽️</div>
+                    <h3>PowerPoint</h3>
+                    <p>Presentation creation, slide layouts and visual storytelling.</p>
+                    <div class="skill-level"><span style="width:80%"></span></div>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="design">
+                    <div class="skill-icon">🎨</div>
                     <h3>Canva Design</h3>
-                    <p>Creating visual content and designs.</p>
-                </div>
+                    <p>Social media graphics, layouts and creative content.</p>
+                    <div class="skill-level"><span style="width:80%"></span></div>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="design">
+                    <div class="skill-icon">🖌️</div>
                     <h3>Graphic Design</h3>
-                    <p>Creative visual communication.</p>
-                </div>
+                    <p>Visual communication, composition and design concepts.</p>
+                    <div class="skill-level"><span style="width:70%"></span></div>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="commerce">
+                    <div class="skill-icon">🔎</div>
                     <h3>Amazon Product Research</h3>
-                    <p>Product hunting and market research.</p>
-                </div>
+                    <p>Product hunting, product research and market analysis.</p>
+                    <div class="skill-level"><span style="width:70%"></span></div>
+                </article>
 
-                <div class="skill-card">
-                    <h3>Shopify Store Management</h3>
-                    <p>Store management and e-commerce tasks.</p>
-                </div>
+                <article class="skill-card" data-category="commerce">
+                    <div class="skill-icon">🛍️</div>
+                    <h3>Shopify Management</h3>
+                    <p>E-commerce store management and related store tasks.</p>
+                    <div class="skill-level"><span style="width:70%"></span></div>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="soft">
+                    <div class="skill-icon">💬</div>
                     <h3>Communication</h3>
-                    <p>Clear and professional communication.</p>
-                </div>
+                    <p>Clear communication and collaborative working.</p>
+                    <div class="skill-level"><span style="width:80%"></span></div>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="soft">
+                    <div class="skill-icon">⏱️</div>
                     <h3>Time Management</h3>
-                    <p>Organizing tasks and priorities.</p>
-                </div>
+                    <p>Planning tasks, organizing priorities and meeting deadlines.</p>
+                    <div class="skill-level"><span style="width:80%"></span></div>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card" data-category="soft">
+                    <div class="skill-icon">🧩</div>
                     <h3>Problem Solving</h3>
-                    <p>Analytical thinking and practical solutions.</p>
+                    <p>Analytical thinking and practical approaches to challenges.</p>
+                    <div class="skill-level"><span style="width:75%"></span></div>
+                </article>
+
+            </div>
+
+            <p class="skill-note">
+                Skill bars are illustrative self-assessments, not formal test scores.
+                Adjust them to reflect your actual proficiency.
+            </p>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">Professional journey</span>
+                <h2>Experience & <span class="gradient-text">Interests</span></h2>
+                <p>My current experience level and areas of practical knowledge.</p>
+            </div>
+
+            <div class="experience-card">
+                <div>
+                    <span class="pill">Entry Level</span>
+                    <h3 style="margin-top:18px;">Fresh Candidate</h3>
+
+                    <p>
+                        I am at the beginning of my professional career and
+                        looking for opportunities to apply my skills, gain
+                        practical experience and learn from a professional team.
+                    </p>
                 </div>
 
+                <div>
+                    <h3>Areas of Knowledge</h3>
+
+                    <ul>
+                        <li>Shopify store management and e-commerce concepts.</li>
+                        <li>Amazon product hunting and market research.</li>
+                        <li>Graphic design and content creation using Canva.</li>
+                        <li>Microsoft Word, PowerPoint and Excel.</li>
+                        <li>Communication, time management and problem-solving.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- EDUCATION SECTION -->
-    <section id="education">
+    <!-- VIDEO SECTION -->
+    <section class="section section-alt" id="videos">
         <div class="container">
-            <h2 class="section-title">My <span class="highlight">Education</span></h2>
-            <p class="section-subtitle">My academic background</p>
-
-            <div class="education-box">
-                <h3>BS Computer Science</h3>
-
+            <div class="section-heading">
+                <span class="eyebrow">Watch & explore</span>
+                <h2>Video <span class="gradient-text">Showcase</span></h2>
                 <p>
-                    MNS University of Engineering and Technology, Multan
+                    Add your YouTube videos here to showcase your interests,
+                    creative work or educational content.
                 </p>
+            </div>
 
-                <p>Currently studying — 3rd Semester</p>
+            <div class="video-grid">
+
+                <article class="video-card">
+                    <div class="video-placeholder">
+                        <div>
+                            <div style="font-size:2.5rem;">▶</div>
+                            <h3>Your Featured Video</h3>
+                            <p style="color:var(--muted);">
+                                Replace this placeholder with your YouTube video.
+                            </p>
+                            <a href="https://www.youtube.com/@farhanfano_207"
+                               target="_blank" rel="noopener noreferrer">
+                                Visit My YouTube Channel ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>My YouTube Channel</h3>
+                        <p>
+                            Explore my channel and discover the videos I share.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="video-card">
+                    <div class="video-placeholder">
+                        <div>
+                            <div style="font-size:2.5rem;">🎬</div>
+                            <h3>Creative Work</h3>
+                            <p style="color:var(--muted);">
+                                Add a second video when you have one to feature.
+                            </p>
+                            <a href="https://www.youtube.com/@farhanfano_207"
+                               target="_blank" rel="noopener noreferrer">
+                                Watch on YouTube ↗
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="video-info">
+                        <h3>Video Highlights</h3>
+                        <p>
+                            A space for projects, tutorials or creative videos.
+                        </p>
+                    </div>
+                </article>
+
             </div>
         </div>
     </section>
 
-    <!-- SOCIAL LINKS SECTION -->
-    <section id="social">
+    <!-- CV DOWNLOAD -->
+    <section class="section" id="cv">
         <div class="container">
-            <h2 class="section-title">Connect With <span class="highlight">Me</span></h2>
+            <div class="cv-panel">
+                <div>
+                    <span class="eyebrow">Resume & credentials</span>
+                    <h3>Want to know more about my background?</h3>
+                    <p>
+                        View or download my CV to explore my education,
+                        skills and professional profile.
+                    </p>
+                </div>
 
-            <p class="section-subtitle">
-                Find me on social media
-            </p>
+                <div class="cv-buttons">
+                    <!-- Add your actual CV PDF as cv.pdf in the same folder -->
+                    <a class="btn btn-primary"
+                       href="cv.pdf"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        View My CV ↗
+                    </a>
+
+                    <a class="btn btn-secondary"
+                       href="cv.pdf"
+                       download="Muhammad-Farhan-Ramzan-CV.pdf">
+                        Download CV ↓
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section class="section section-alt" id="languages">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">Communication</span>
+                <h2>Languages I <span class="gradient-text">Speak</span></h2>
+                <p>Languages included in my personal profile.</p>
+            </div>
+
+            <div class="language-grid">
+                <div class="language-card">
+                    <strong>English</strong>
+                    <p>Language</p>
+                </div>
+
+                <div class="language-card">
+                    <strong>Urdu</strong>
+                    <p>Language</p>
+                </div>
+
+                <div class="language-card">
+                    <strong>Saraiki</strong>
+                    <p>Language</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL LINKS -->
+    <section class="section" id="social">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">Find me online</span>
+                <h2>Let's <span class="gradient-text">Connect</span></h2>
+                <p>Connect with me through my social media profiles.</p>
+            </div>
 
             <div class="social-grid">
 
                 <a class="social-card"
                    href="https://www.linkedin.com/in/muhammad-farhan-ramzan-7b9683389/"
                    target="_blank" rel="noopener noreferrer">
-                    <span>in</span>
-                    LinkedIn
+                    <span class="social-icon">in</span>
+                    <span>LinkedIn<small>Professional profile ↗</small></span>
                 </a>
 
                 <a class="social-card"
                    href="https://www.facebook.com/share/1CFvouWQ95/"
                    target="_blank" rel="noopener noreferrer">
-                    <span>f</span>
-                    Facebook
+                    <span class="social-icon">f</span>
+                    <span>Facebook<small>Connect with me ↗</small></span>
                 </a>
 
                 <a class="social-card"
                    href="https://www.tiktok.com/@aspirianboy08"
                    target="_blank" rel="noopener noreferrer">
-                    <span>♪</span>
-                    TikTok
+                    <span class="social-icon">♪</span>
+                    <span>TikTok<small>Watch my content ↗</small></span>
                 </a>
 
                 <a class="social-card"
                    href="https://www.youtube.com/@farhanfano_207"
                    target="_blank" rel="noopener noreferrer">
-                    <span>▶</span>
-                    YouTube
+                    <span class="social-icon">▶</span>
+                    <span>YouTube<small>Visit my channel ↗</small></span>
                 </a>
 
                 <a class="social-card"
                    href="https://www.instagram.com/mfr.official07/"
                    target="_blank" rel="noopener noreferrer">
-                    <span>◎</span>
-                    Instagram
+                    <span class="social-icon">◎</span>
+                    <span>Instagram<small>Follow my profile ↗</small></span>
                 </a>
 
                 <a class="social-card"
                    href="https://github.com/farhanfano"
                    target="_blank" rel="noopener noreferrer">
-                    <span>&lt;/&gt;</span>
-                    GitHub
+                    <span class="social-icon">&lt;/&gt;</span>
+                    <span>GitHub<small>My code and repositories ↗</small></span>
                 </a>
 
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
+    <!-- REVIEWS -->
+    <section class="section section-alt" id="reviews">
         <div class="container">
-            <h2 class="section-title">Contact <span class="highlight">Me</span></h2>
-            <p class="section-subtitle">
-                Feel free to get in touch
-            </p>
-
-            <div class="contact-box">
-                <h3>Let's Connect!</h3>
-
+            <div class="section-heading">
+                <span class="eyebrow">Feedback</span>
+                <h2>Reviews & <span class="gradient-text">Testimonials</span></h2>
                 <p>
-                    For professional inquiries, collaboration, or opportunities,
-                    feel free to send me an email.
+                    This section can display genuine feedback from people
+                    who have worked or studied with me.
                 </p>
+            </div>
 
-                <p>
-                    <strong>Email:</strong> farhanfano608@gmail.com
-                </p>
+            <div class="review-grid" id="reviewList">
+                <article class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p>
+                        Testimonials will appear here after genuine feedback
+                        has been added.
+                    </p>
+                    <strong>Review Section</strong>
+                    <small>Awaiting first testimonial</small>
+                </article>
+            </div>
 
-                <div class="buttons" style="justify-content:center;">
-                    <a class="btn btn-primary"
-                       href="mailto:farhanfano608@gmail.com">
-                        Send Me an Email
-                    </a>
+            <form class="review-form" id="reviewForm">
+                <h3>Leave Feedback</h3>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="reviewName">Your Name</label>
+                        <input id="reviewName"
+                               name="name"
+                               maxlength="60"
+                               required>
+                    </div>
+
+                    <div class="field">
+                        <label for="reviewRating">Rating</label>
+                        <select id="reviewRating" name="rating" required>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Needs Improvement</option>
+                        </select>
+                    </div>
                 </div>
+
+                <div class="field">
+                    <label for="reviewMessage">Your Feedback</label>
+                    <textarea id="reviewMessage"
+                              name="message"
+                              maxlength="1000"
+                              required></textarea>
+                </div>
+
+                <button class="btn btn-primary" type="submit">
+                    Prepare Review
+                </button>
+
+                <p class="form-note">
+                    This static website cannot publish or store reviews
+                    automatically. This form prepares your review for email;
+                    it does not display it publicly without a backend.
+                </p>
+
+                <p class="status-message" id="reviewStatus" aria-live="polite"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-heading">
+                <span class="eyebrow">Get in touch</span>
+                <h2>Contact <span class="gradient-text">Me</span></h2>
+                <p>
+                    Feel free to contact me about opportunities,
+                    collaboration or professional inquiries.
+                </p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+
+                    <div class="contact-item">
+                        <span>EMAIL</span>
+                        <a href="mailto:farhanfano608@gmail.com">
+                            farhanfano608@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>PHONE</span>
+                        <a href="tel:+923042777279">
+                            +92 304 2777279
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>LOCATION</span>
+                        <p>
+                            Makhdoom Ali, 387/WB, Dunyapur, Lodhran,
+                            Punjab, Pakistan
+                        </p>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>UNIVERSITY</span>
+                        <p>MNS University of Engineering and Technology, Multan</p>
+                    </div>
+
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="field">
+                        <label for="contactName">Your Name</label>
+                        <input id="contactName"
+                               name="name"
+                               maxlength="100"
+                               required>
+                    </div>
+
+                    <div class="field">
+                        <label for="contactEmail">Your Email</label>
+                        <input id="contactEmail"
+                               name="email"
+                               type="email"
+                               maxlength="150"
+                               required>
+                    </div>
+
+                    <div class="field">
+                        <label for="contactSubject">Subject</label>
+                        <input id="contactSubject"
+                               name="subject"
+                               maxlength="150"
+                               required>
+                    </div>
+
+                    <div class="field">
+                        <label for="contactMessage">Message</label>
+                        <textarea id="contactMessage"
+                                  name="message"
+                                  maxlength="3000"
+                                  required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        Compose Email →
+                    </button>
+
+                    <p class="form-note">
+                        Your default email application will open with your
+                        message. This form does not send messages directly.
+                    </p>
+                </form>
             </div>
         </div>
     </section>
 
 </main>
 
-<footer>
-    <div class="container">
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container footer-inner">
         <p>
-            &copy; <span id="year"></span> Muhammad Farhan Ramzan.
-            All rights reserved.
+            © <span id="currentYear"></span>
+            Muhammad Farhan Ramzan. All rights reserved.
         </p>
+
+        <a href="#home" class="back-top">Back to top ↑</a>
     </div>
 </footer>
 
 <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Current year
+    document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("open");
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.textContent = "☰";
+        });
+    });
+
+    // Profile image: use profile.jpg in the same folder.
+    const profileImage = document.getElementById("profileImage");
+    const portraitPlaceholder =
+        document.getElementById("portraitPlaceholder");
+
+    profileImage.addEventListener("load", function () {
+        profileImage.hidden = false;
+        portraitPlaceholder.hidden = true;
+    });
+
+    profileImage.addEventListener("error", function () {
+        profileImage.hidden = true;
+        portraitPlaceholder.hidden = false;
+    });
+
+    if (profileImage.complete && profileImage.naturalWidth > 0) {
+        profileImage.hidden = false;
+        portraitPlaceholder.hidden = true;
+    }
+
+    // Skill filters
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const skillCards = document.querySelectorAll(".skill-card");
+
+    filterButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            const filter = button.dataset.filter;
+
+            filterButtons.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            skillCards.forEach(function (card) {
+                const category = card.dataset.category;
+                const show = filter === "all" || category === filter;
+
+                card.classList.toggle("hidden", !show);
+            });
+        });
+    });
+
+    // Contact form: compose an email using the visitor's email application.
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("contactName").value.trim();
+        const email = document.getElementById("contactEmail").value.trim();
+        const subject = document.getElementById("contactSubject").value.trim();
+        const message = document.getElementById("contactMessage").value.trim();
+
+        const body =
+            "Name: " + name + "\n" +
+            "Email: " + email + "\n\n" +
+            message;
+
+        const mailto =
+            "mailto:farhanfano608@gmail.com" +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+
+        window.location.href = mailto;
+    });
+
+    // Review form: prepare an email instead of pretending to save reviews.
+    document.getElementById("reviewForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("reviewName").value.trim();
+        const rating = document.getElementById("reviewRating").value;
+        const message = document.getElementById("reviewMessage").value.trim();
+
+        const body =
+            "Portfolio review submission\n\n" +
+            "Reviewer: " + name + "\n" +
+            "Rating: " + rating + "/5\n\n" +
+            "Feedback:\n" + message;
+
+        const mailto =
+            "mailto:farhanfano608@gmail.com" +
+            "?subject=" + encodeURIComponent("Portfolio Feedback") +
+            "&body=" + encodeURIComponent(body);
+
+        document.getElementById("reviewStatus").textContent =
+            "Opening your email application to submit this feedback.";
+
+        window.location.href = mailto;
+    });
 </script>
 
 </body>
