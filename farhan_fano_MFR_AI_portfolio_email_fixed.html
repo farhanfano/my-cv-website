@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101629">
+<meta name="description" content="Muhammad Farhan Ramzan — BSCS student, aspiring developer, digital creator and e-commerce enthusiast from Lodhran, Pakistan.">
+<title>Muhammad Farhan Ramzan — Personal Portfolio</title>
+<style>
+:root{--ink:#0B132B;--paper:#F1F4F8;--muted:#5C667A;--blue:#1C2541;--cyan:#1C2541;--violet:#1C2541;--lime:#C7D0DE;--line:#C7D0DE;--white:#F1F4F8;--radius:24px;--shadow:0 22px 60px rgba(11,19,43,.16)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:90px}body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}.container{width:min(1160px,calc(100% - 42px));margin:auto}
+.nav-shell{position:sticky;top:0;z-index:99;background:rgba(247,248,252,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(230,233,241,.85)}nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}.logo{font-size:1.5rem;font-weight:950;letter-spacing:-.09em}.logo em{color:var(--blue);font-style:normal}.navlinks{display:flex;align-items:center;gap:25px;font-size:.88rem;color:#606a80}.navlinks a:hover{color:var(--blue)}.navright{display:flex;gap:9px;align-items:center}.navbtn,.menu{border:0;cursor:pointer;border-radius:12px;padding:11px 15px;font-weight:800}.navbtn{background:var(--ink);color:white}.menu{display:none;background:#e9edfb;font-size:1.1rem}
+.kicker{font-size:.74rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}.section{padding:92px 0}.section-title{font-size:clamp(2rem,4.3vw,3.55rem);letter-spacing:-.065em;line-height:1.08;margin-top:10px}.section-copy{max-width:580px;color:var(--muted);margin-top:15px}.headrow{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}.headrow .section-copy{max-width:430px;margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 18px;border-radius:13px;font-size:.9rem;font-weight:850;border:1px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}.btn:hover{transform:translateY(-3px)}.btn-blue{background:var(--blue);color:white;box-shadow:0 12px 25px rgba(55,104,245,.24)}.btn-dark{background:var(--ink);color:white}.btn-light{background:white;border-color:#e2e6f0;color:var(--ink)}.btn-lime{background:var(--lime);color:#19211b}
+.hero{padding:44px 0 80px;background:radial-gradient(ellipse at 80% 8%,rgba(55,104,245,.10),transparent 35%),var(--paper)}.hero-inner{min-height:610px;display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:65px}.portrait-area{position:relative;max-width:420px;margin:auto;width:100%;padding:17px;border-radius:40px;background:linear-gradient(145deg,#F1F4F8,#C7D0DE 48%,#F1F4F8);box-shadow:0 25px 75px rgba(55,104,245,.17)}.portrait-frame{position:relative;overflow:hidden;border-radius:29px;background:#1680d5;aspect-ratio:4/5}.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}.portrait-badge{position:absolute;left:-17px;bottom:36px;background:var(--ink);color:white;padding:14px 18px;border-radius:15px;box-shadow:0 15px 35px #15234a30;font-size:.83rem;font-weight:800}.portrait-badge small{display:block;color:#bfc9e2;font-size:.7rem;font-weight:500}.portrait-number{position:absolute;right:-12px;top:35px;border-radius:50%;width:78px;height:78px;background:var(--lime);display:grid;place-items:center;font-weight:950;transform:rotate(9deg);box-shadow:0 12px 24px #1e293b20}.hero-copy .kicker{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;background:#F1F4F8;border-radius:999px}.hero-copy .kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:#C7D0DE;box-shadow:0 0 0 4px #C7D0DE22}.hero h1{font-size:clamp(2.8rem,5.8vw,5.3rem);line-height:.99;letter-spacing:-.075em;margin:24px 0}.hero h1 span{display:block;color:var(--blue)}.hero-copy p{color:var(--muted);font-size:1.05rem;max-width:610px}.hero-actions{display:flex;flex-wrap:wrap;gap:11px;margin-top:25px}.hero-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.meta-pill{padding:8px 11px;border:1px solid #e0e5f0;background:#F1F4F8;border-radius:10px;font-size:.78rem;font-weight:750;color:#4c5870}.meta-pill b{color:var(--ink)}
+.strip{background:var(--ink);color:white;padding:21px 0}.strip-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.strip-item{display:flex;align-items:center;gap:12px}.strip-item strong{font-size:1.45rem;letter-spacing:-.05em}.strip-item span{font-size:.76rem;color:#b9c4dc;line-height:1.35}.strip-item span b{display:block;color:white;font-size:.85rem}
+.about{background:#F1F4F8}.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}.about-main{padding:clamp(25px,4vw,42px);border-radius:var(--radius);background:#f1f4ff;border:1px solid #e5eaff}.about-main p{color:#5d6880;margin-top:16px}.about-main strong{color:var(--ink)}.about-side{display:grid;gap:14px}.mini-panel{padding:24px;border-radius:22px;border:1px solid var(--line);background:#F1F4F8}.mini-panel .symbol{font-size:1.5rem}.mini-panel h3{margin:7px 0 4px}.mini-panel p{color:var(--muted);font-size:.88rem}.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.tag{padding:7px 11px;border-radius:999px;background:white;border:1px solid #dce3f3;font-size:.76rem;font-weight:750;color:#43506a}
+.education{background:#e9f8f6}.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.edu-card{position:relative;padding:25px 23px 26px;border-radius:23px;background:#F1F4F8;border:1px solid #d7efec;overflow:hidden;min-height:245px}.edu-card:nth-child(2){transform:translateY(17px)}.edu-card:nth-child(3){background:var(--ink);color:white;border-color:var(--ink)}.edu-year{font-size:.75rem;font-weight:900;letter-spacing:.12em;color:#138b8d}.edu-card:nth-child(3) .edu-year{color:var(--lime)}.edu-icon{width:45px;height:45px;display:grid;place-items:center;border-radius:14px;background:#e5f8f5;font-size:1.25rem;margin:18px 0}.edu-card:nth-child(3) .edu-icon{background:#25324f}.edu-card h3{font-size:1.05rem;line-height:1.35}.edu-card p{font-size:.85rem;color:var(--muted);margin-top:8px}.edu-card:nth-child(3) p{color:#b9c4dc}
+.skills{background:#F1F4F8}.skill-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:28px}.skill-intro{padding:32px;border-radius:25px;background:var(--blue);color:white;display:flex;flex-direction:column;justify-content:space-between;min-height:350px}.skill-intro p{color:#e2eaff;margin-top:14px}.skill-intro .huge{font-size:4rem;line-height:1;font-weight:950;letter-spacing:-.08em;margin-top:35px}.skill-intro small{color:#e2eaff}.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.skill-card{padding:18px 16px;border:1px solid var(--line);border-radius:17px;background:#fbfcff;transition:.2s}.skill-card:hover{transform:translateY(-4px);border-color:#b6c7ff;box-shadow:0 15px 30px #263e7510}.skill-icon{width:38px;height:38px;border-radius:12px;background:#F1F4F8;color:var(--blue);display:grid;place-items:center;font-size:1.1rem;margin-bottom:13px}.skill-card b{display:block;font-size:.86rem;line-height:1.35}.skill-card small{display:block;color:var(--muted);font-size:.73rem;margin-top:5px}
+.projects{background:#111a30;color:white;position:relative;overflow:hidden}.projects:before{content:"";position:absolute;width:400px;height:400px;border-radius:50%;border:1px solid #F1F4F80b;right:-140px;top:40px;box-shadow:0 0 0 45px #F1F4F805,0 0 0 90px #F1F4F803}.projects .section-copy{color:#b8c4dc}.projects .kicker{color:var(--lime)}.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px;position:relative}.project-card{border:1px solid #2a3651;background:#17223a;border-radius:24px;padding:25px;transition:transform .2s,border .2s}.project-card:hover{transform:translateY(-5px);border-color:#6f8cff}.project-top{display:flex;justify-content:space-between;align-items:center}.project-symbol{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:#26385b;font-size:1.45rem}.project-type{font-size:.7rem;font-weight:850;text-transform:uppercase;letter-spacing:.1em;color:var(--lime)}.project-card h3{font-size:1.28rem;letter-spacing:-.035em;margin:20px 0 9px}.project-card p{color:#b8c4dc;font-size:.9rem}.project-card ul{list-style:none;display:grid;gap:7px;margin-top:17px;color:#e1e8f7;font-size:.83rem}.project-card li:before{content:"↗";color:var(--lime);margin-right:9px}.project-foot{border-top:1px solid #2a3651;margin-top:21px;padding-top:15px;font-size:.76rem;color:#aab8d3}.project-note{color:#aab8d3;font-size:.8rem;margin-top:17px}
+.experience{background:#f4f0ff}.exp-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:20px}.exp-banner{padding:30px;border-radius:25px;background:linear-gradient(145deg,#7855e8,#4c36c9);color:white;display:flex;flex-direction:column;justify-content:space-between;min-height:310px}.exp-banner .number{font-size:4rem;font-weight:950;line-height:1;letter-spacing:-.08em}.exp-banner p{color:#ece7ff;margin-top:16px}.exp-detail{padding:30px;border-radius:25px;background:white;border:1px solid #e8e0ff}.exp-detail h3{font-size:1.25rem}.exp-detail p{color:var(--muted);margin-top:12px}.checklist{list-style:none;display:grid;gap:11px;margin-top:19px}.checklist li{display:flex;gap:10px;font-size:.9rem}.checklist li:before{content:"✓";display:grid;place-items:center;width:22px;height:22px;flex:0 0 22px;background:#e8f8f0;color:#168456;border-radius:50%;font-size:.75rem;font-weight:900}
+.language{background:#F1F4F8}.language-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.lang-card{padding:23px;border:1px solid var(--line);border-radius:20px;display:flex;align-items:center;gap:15px;background:#fbfcff}.lang-mark{width:48px;height:48px;border-radius:16px;background:#F1F4F8;color:var(--blue);display:grid;place-items:center;font-size:1.2rem;font-weight:900}.lang-card h3{font-size:1rem}.lang-card p{font-size:.8rem;color:var(--muted)}
+.social{background:#dff3f2}.social-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.social-card{display:flex;align-items:center;gap:15px;padding:20px;border-radius:20px;background:#F1F4F8;border:1px solid #cce8e5;transition:.2s}.social-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.social-icon{width:48px;height:48px;border-radius:15px;background:var(--ink);color:white;display:grid;place-items:center;font-size:1.1rem;font-weight:900}.social-card h3{font-size:.96rem}.social-card p{color:var(--muted);font-size:.77rem}.social-arrow{margin-left:auto;color:var(--blue);font-weight:900}
+.review{background:#F1F4F8}.review-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:20px}.review-form-panel{padding:28px;border-radius:25px;background:#F1F4F8;border:1px solid #C7D0DE}.review-form-panel h3,.review-list-panel h3{font-size:1.25rem}.form-field{margin-top:15px}.form-field label{display:block;font-size:.82rem;font-weight:850;margin-bottom:7px}.form-field input,.form-field textarea{width:100%;padding:12px 13px;border:1px solid #dce2f0;background:white;border-radius:12px;color:var(--ink);outline:none}.form-field input:focus,.form-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #0B132B1a}.form-field textarea{min-height:105px;resize:vertical}.stars{display:flex;gap:5px}.star{border:0;background:none;font-size:1.9rem;color:#cbd2e2;cursor:pointer;padding:0 2px}.star.active{color:#f4b400}.review-submit{width:100%;margin-top:18px}.review-status,.review-disclaimer{font-size:.77rem;color:var(--muted);margin-top:12px}.review-list-panel{padding:28px;border-radius:25px;border:1px solid var(--line);background:#F1F4F8}.review-list{display:grid;gap:12px;margin-top:18px}.review-item{padding:17px;border:1px solid var(--line);border-radius:17px;background:#fcfcff}.review-item-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.review-item h4{font-size:.9rem}.review-date{font-size:.7rem;color:var(--muted)}.review-stars{color:#f4b400;letter-spacing:1px;margin-top:5px}.review-item p{font-size:.88rem;color:#58657c;margin-top:7px;white-space:pre-wrap;overflow-wrap:anywhere}.empty-reviews{padding:25px;border:1px dashed #d8deeb;border-radius:16px;text-align:center;color:var(--muted);font-size:.87rem}
+.contact{background:var(--ink);color:white}.contact .kicker{color:var(--lime)}.contact .section-copy{color:#b8c4dc}.contact-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center;padding:clamp(26px,5vw,52px);border-radius:30px;background:linear-gradient(125deg,#1c2a49,#15213a);border:1px solid #2a3a5c}.contact-panel .section-title{font-size:clamp(2rem,4vw,3.4rem)}.contact-buttons{display:flex;flex-wrap:wrap;gap:11px;margin-top:24px}.contact-details{display:grid;gap:10px}.contact-detail{display:flex;align-items:center;gap:13px;padding:14px;border:1px solid #34415c;border-radius:15px;background:#F1F4F805}.contact-detail .sym{width:39px;height:39px;border-radius:12px;background:#2a3d62;display:grid;place-items:center}.contact-detail small{display:block;color:#aebbd4;font-size:.72rem}.contact-detail strong{font-size:.85rem;overflow-wrap:anywhere}.footer{background:#0b1020;color:#aebbd4;padding:25px 0}.footer-inner{display:flex;justify-content:space-between;gap:18px;align-items:center;font-size:.78rem}.footer-links{display:flex;flex-wrap:wrap;gap:16px}.footer a:hover{color:white}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}.reveal.show{opacity:1;transform:none}
+@media(max-width:900px){.hero-inner{grid-template-columns:.8fr 1.2fr;gap:32px}.hero h1{font-size:clamp(2.6rem,6vw,4.3rem)}.skill-layout{grid-template-columns:1fr}.skill-intro{min-height:230px}.skill-intro .huge{margin-top:18px}.skill-grid{grid-template-columns:repeat(4,1fr)}.about-grid,.exp-grid{grid-template-columns:1fr}.edu-card:nth-child(2){transform:none}.contact-panel{grid-template-columns:1fr}.contact-details{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.container{width:calc(100% - 30px)}nav{height:68px}.menu{display:block}.navlinks{display:none;position:absolute;top:72px;left:15px;right:15px;padding:12px;border-radius:17px;background:white;border:1px solid var(--line);box-shadow:var(--shadow);flex-direction:column;align-items:stretch;gap:0}.navlinks.open{display:flex}.navlinks a{padding:10px}.navright .navbtn{display:none}.hero{padding:25px 0 53px}.hero-inner{grid-template-columns:1fr;gap:37px}.portrait-area{max-width:310px;order:0}.hero-copy{order:1}.hero h1{font-size:clamp(2.9rem,13vw,4.2rem);margin:20px 0}.hero-copy p{font-size:.98rem}.hero-actions .btn{flex:1}.hero-meta{gap:7px}.meta-pill{font-size:.7rem}.strip-inner{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.strip-item strong{font-size:1.3rem}.section{padding:65px 0}.headrow{display:block}.headrow .section-copy{margin-top:13px}.edu-grid,.project-grid,.language-grid,.social-grid,.review-layout{grid-template-columns:1fr}.skill-grid{grid-template-columns:repeat(2,1fr)}.project-card{padding:21px}.contact-details{grid-template-columns:1fr}.footer-inner{align-items:flex-start;flex-direction:column}.section-title{font-size:2.5rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}.reveal{opacity:1;transform:none}}
+
+/* Refined visual system: navy + royal blue + white/ice */
+body{background:var(--paper);color:var(--ink);font-family:Inter,"Segoe UI",Arial,sans-serif}
+.nav-shell{background:rgba(245,248,252,.94);border-bottom:1px solid var(--line)}
+.logo em,.navlinks a:hover,.kicker{color:var(--blue)}
+.navbtn,.btn-dark{background:var(--ink);color:#F1F4F8}
+.menu{background:#F1F4F8;color:var(--ink)}
+.hero{padding:46px 0 74px;background:linear-gradient(180deg,#F1F4F8 0%,var(--paper) 100%)}
+.hero-inner{min-height:0;grid-template-columns:minmax(250px,.78fr) minmax(0,1.22fr);gap:clamp(34px,6vw,78px);align-items:center}
+.portrait-area{width:min(100%,330px);max-width:330px;padding:10px;border-radius:28px;background:#F1F4F8;border:1px solid #C7D0DE;box-shadow:0 20px 52px rgba(37,99,235,.12)}
+.portrait-frame{aspect-ratio:4/5;max-height:410px;border-radius:20px;background:#F1F4F8}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.portrait-badge{left:-12px;bottom:22px;background:var(--ink);padding:12px 15px;border-radius:12px}
+.portrait-number{width:58px;height:58px;right:-12px;top:20px;background:var(--blue);color:#F1F4F8;font-size:.9rem;transform:none}
+.hero-copy .kicker{background:#F1F4F8;color:var(--blue)}
+.hero h1{font-size:clamp(2.7rem,5.2vw,4.7rem);letter-spacing:-.065em}
+.hero h1 span{color:var(--blue)}
+.btn-blue{background:var(--blue);box-shadow:0 10px 24px rgba(37,99,235,.2)}
+.btn-lime{background:#dbeafe;color:var(--ink)}
+.meta-pill{border-color:var(--line);background:#F1F4F8;color:#42526a}
+.strip{background:var(--ink)}
+.about,.skills,.language,.review{background:#F1F4F8}
+.about-main{background:#F1F4F8;border-color:#C7D0DE}
+.tag{background:#F1F4F8;border-color:#dce5f2;color:#344563}
+.education{background:#F1F4F8}
+.edu-card{border-color:#dce7f7;box-shadow:0 10px 30px rgba(20,33,61,.04)}
+.edu-card:nth-child(2){transform:none}
+.edu-card:nth-child(3){background:var(--ink);border-color:var(--ink)}
+.edu-year{color:var(--blue)}
+.edu-card:nth-child(3) .edu-year{color:#C7D0DE}
+.edu-icon{background:#F1F4F8;color:var(--blue)}
+.edu-card:nth-child(3) .edu-icon{background:#26395e}
+.skill-intro{background:var(--ink)}
+.skill-card{background:#fbfcff;border-color:var(--line)}
+.skill-card:hover{border-color:#C7D0DE;box-shadow:0 15px 30px rgba(37,99,235,.08)}
+.skill-icon{background:#F1F4F8;color:var(--blue)}
+.projects{background:#0B132B}
+.projects .kicker{color:#C7D0DE}
+.project-card{background:#1b2b4a;border-color:#2b3e61}
+.project-card:hover{border-color:#C7D0DE}
+.project-type,.project-card li:before{color:#C7D0DE}
+.project-symbol{background:#26395e}
+.experience{background:#F1F4F8}
+.exp-banner{background:var(--ink)}
+.exp-detail{border-color:#dce7f7}
+.checklist li:before{background:#F1F4F8;color:var(--blue)}
+.lang-mark,.social-icon{background:#F1F4F8;color:var(--blue)}
+.social{background:#F1F4F8}
+.social-card{border-color:#dce7f7;background:#F1F4F8}
+.review-form-panel,.review-list-panel{border-color:var(--line)}
+.star.active,.review-stars{color:var(--blue)}
+.contact{background:var(--ink)}
+.contact-panel{background:#1b2b4a;border-color:#2b3e61}
+.contact .kicker{color:#C7D0DE}
+.contact .section-copy{color:#c4d0e4}
+.contact-detail .sym{background:#26395e;color:#C7D0DE}
+.contact-detail small{color:#b7c5dd}
+.footer{background:#0e1930}
+.section{padding:82px 0}
+.section-title{letter-spacing:-.055em}
+.kicker{letter-spacing:.13em;font-size:.72rem}
+.headrow{margin-bottom:30px}
+.edu-card h3,.skill-card b,.project-card h3{letter-spacing:-.02em}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #C7D0DE;outline-offset:3px}
+@media(max-width:900px){
+ .hero-inner{grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);gap:32px}
+ .portrait-area{max-width:300px}
+ .hero h1{font-size:clamp(2.5rem,5.8vw,4rem)}
+ .edu-grid{grid-template-columns:1fr 1fr}
+ .edu-card:nth-child(3){grid-column:1/-1}
+}
+@media(max-width:680px){
+ .hero{padding:30px 0 54px}
+ .hero-inner{grid-template-columns:1fr;gap:29px}
+ .portrait-area{max-width:250px;padding:8px;border-radius:23px}
+ .portrait-frame{aspect-ratio:4/5;max-height:315px;border-radius:16px}
+ .portrait-badge{left:-10px;bottom:16px;font-size:.75rem;padding:10px 12px}
+ .portrait-number{width:48px;height:48px;right:-9px;top:14px;font-size:.78rem}
+ .hero-copy{order:1}
+ .hero h1{font-size:clamp(2.65rem,12vw,3.7rem)}
+ .section{padding:62px 0}
+ .edu-grid{grid-template-columns:1fr}
+ .edu-card:nth-child(3){grid-column:auto}
+ .section-title{font-size:clamp(2rem,9vw,2.65rem)}
+}
+
+
+
+/* Final MFR brand theme: Dark Navy + Midnight Blue + Soft Silver */
+:root{--ink:#0B132B;--paper:#F1F4F8;--muted:#5C667A;--blue:#1C2541;--cyan:#1C2541;--violet:#1C2541;--lime:#C7D0DE;--line:#C7D0DE;--white:#F1F4F8;--radius:24px;--shadow:0 22px 60px rgba(11,19,43,.16)}
+html{scroll-behavior:smooth}
+body{background:#F1F4F8;color:#0B132B}
+.nav-shell{background:rgba(241,244,248,.96);border-bottom:1px solid #C7D0DE}
+.hero{background:linear-gradient(180deg,#F1F4F8 0%,#C7D0DE 100%)}
+.strip,.skill-intro,.projects,.contact,.footer,.exp-banner{background:#0B132B;color:#F1F4F8}
+.about,.skills,.language,.review,.education,.experience,.social{background:#F1F4F8;color:#0B132B}
+.about-main,.edu-card,.skill-card,.social-card,.review-form-panel,.review-list-panel{background:#C7D0DE;border-color:#1C2541;color:#0B132B}
+.edu-card:nth-child(3){background:#1C2541;color:#F1F4F8;border-color:#1C2541}
+.project-card,.contact-panel{background:#1C2541;color:#F1F4F8;border-color:#C7D0DE}
+.portrait-area{background:#C7D0DE;border:1px solid #1C2541;box-shadow:0 20px 52px rgba(11,19,43,.16)}
+.portrait-frame{background:#1C2541}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.portrait-badge,.navbtn,.btn-dark,.btn-blue,.mfr-ai-launch{background:#1C2541;color:#F1F4F8}
+.portrait-number,.edu-icon,.skill-icon,.project-symbol,.lang-mark,.social-icon,.contact-detail .sym,.mfr-ai-avatar,.mfr-ai-quick button{background:#C7D0DE;color:#0B132B;border-color:#1C2541}
+.btn-lime,.meta-pill,.tag{background:#C7D0DE;color:#0B132B;border-color:#1C2541}
+.hero h1,.hero h1 span,.section-title,.kicker,.logo em,.navlinks a{color:#0B132B}
+.hero-copy p,.section-copy,.edu-card p,.skill-card p{color:#1C2541}
+.edu-card:nth-child(3) p,.edu-card:nth-child(3) h3,.edu-card:nth-child(3) .edu-year{color:#F1F4F8}
+.projects .kicker,.contact .kicker{color:#C7D0DE}
+.project-card h3,.project-card p,.project-card li,.contact .section-copy,.contact-detail,.contact-detail strong{color:#F1F4F8}
+.contact-detail small{color:#C7D0DE}
+.project-type,.project-card li:before{color:#C7D0DE}
+.mfr-ai-panel{background:#F1F4F8;border:1px solid #C7D0DE}
+.mfr-ai-head{background:#0B132B;color:#F1F4F8}
+.mfr-ai-head strong{color:#F1F4F8}
+.mfr-ai-head small{color:#C7D0DE}
+.mfr-ai-messages{background:#F1F4F8}
+.mfr-ai-msg.bot{background:#C7D0DE;color:#0B132B;border:1px solid #C7D0DE}
+.mfr-ai-msg.user{background:#1C2541;color:#F1F4F8}
+.mfr-ai-quick,.mfr-ai-form,.mfr-ai-note{background:#F1F4F8}
+.mfr-ai-quick button{background:#C7D0DE;color:#0B132B;border:1px solid #1C2541}
+.mfr-ai-form input{background:#F1F4F8;color:#0B132B;border:1px solid #C7D0DE}
+.mfr-ai-form input::placeholder{color:#5C667A}
+.mfr-ai-form button{background:#1C2541;color:#F1F4F8}
+.mfr-ai-note{color:#5C667A}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #1C2541;outline-offset:3px}
+@media(max-width:900px){.hero-inner{grid-template-columns:minmax(220px,.75fr) minmax(0,1.25fr);gap:32px}.portrait-area{max-width:300px}.edu-grid{grid-template-columns:1fr 1fr}.edu-card:nth-child(3){grid-column:1/-1}}
+@media(max-width:680px){.hero{padding:30px 0 54px}.hero-inner{grid-template-columns:1fr;gap:29px}.portrait-area{max-width:250px;padding:8px;border-radius:23px}.portrait-frame{aspect-ratio:4/5;max-height:315px;border-radius:16px}.portrait-badge{left:-10px;bottom:16px;font-size:.75rem;padding:10px 12px}.portrait-number{width:48px;height:48px;right:-9px;top:14px;font-size:.78rem}.hero h1{font-size:clamp(2.65rem,12vw,3.7rem)}.section{padding:62px 0}.edu-grid{grid-template-columns:1fr}.edu-card:nth-child(3){grid-column:auto}.section-title{font-size:clamp(2rem,9vw,2.65rem)}.mfr-ai-launch{right:14px;bottom:14px;padding:10px 13px}.mfr-ai-panel{right:14px;bottom:76px;width:calc(100vw - 28px);height:min(570px,calc(100dvh - 100px))}}
+
+
+/* Final requested refinements: left hamburger, persistent MFR AI, clean copyright ending */
+nav{position:relative}
+.menu{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:42px;height:42px;padding:9px;flex:0 0 auto;border:1px solid #C7D0DE;background:#C7D0DE;color:#0B132B}
+.menu span{display:block;width:19px;height:2px;border-radius:2px;background:#0B132B;transition:transform .2s,opacity .2s}
+.menu.is-open span:first-child{transform:translateY(7px) rotate(45deg)}
+.menu.is-open span:nth-child(2){opacity:0}
+.menu.is-open span:last-child{transform:translateY(-7px) rotate(-45deg)}
+.footer-inner{justify-content:center;text-align:center}
+.mfr-ai-launch{position:fixed!important;right:22px;bottom:22px;z-index:1000;display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 18px;border:1px solid #C7D0DE;border-radius:999px;background:#1C2541;color:#F1F4F8;box-shadow:0 12px 35px rgba(11,19,43,.28);font-weight:850;cursor:pointer;letter-spacing:.01em}
+.mfr-ai-launch:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(11,19,43,.34)}
+.ai-mark{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#C7D0DE;color:#0B132B;font-size:.72rem;font-weight:950}
+.mfr-ai-panel{position:fixed!important;right:22px;bottom:88px;z-index:1001;width:min(390px,calc(100vw - 28px));height:min(590px,calc(100dvh - 120px));display:none;flex-direction:column;overflow:hidden;border:1px solid #C7D0DE;border-radius:22px;background:#F1F4F8;box-shadow:0 24px 70px rgba(11,19,43,.3)}
+.mfr-ai-panel.open{display:flex}
+.mfr-ai-head{display:flex;align-items:center;gap:12px;padding:15px 16px;background:#0B132B;color:#F1F4F8}
+.mfr-ai-avatar{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:14px;background:#C7D0DE;color:#0B132B;font-weight:950}
+.mfr-ai-head strong{display:block;font-size:1rem}.mfr-ai-head small{display:block;font-size:.73rem;color:#C7D0DE}
+.mfr-ai-close{margin-left:auto;width:34px;height:34px;border:0;border-radius:10px;background:#1C2541;color:#F1F4F8;font-size:1.5rem;cursor:pointer}
+.mfr-ai-messages{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:15px;background:#F1F4F8}
+.mfr-ai-msg{max-width:90%;padding:11px 13px;border-radius:15px;font-size:.87rem;line-height:1.5;overflow-wrap:anywhere}
+.mfr-ai-msg.bot{align-self:flex-start;background:#C7D0DE;color:#0B132B;border:1px solid #C7D0DE;border-bottom-left-radius:5px}
+.mfr-ai-msg.user{align-self:flex-end;background:#1C2541;color:#F1F4F8;border-bottom-right-radius:5px}
+.mfr-ai-quick{display:flex;flex-wrap:wrap;gap:7px;padding:10px 12px;background:#F1F4F8;border-top:1px solid #C7D0DE}
+.mfr-ai-quick button{padding:7px 10px;border:1px solid #1C2541;border-radius:999px;background:#C7D0DE;color:#0B132B;font-size:.75rem;font-weight:750;cursor:pointer}
+.mfr-ai-form{display:flex;gap:8px;padding:11px 12px;background:#F1F4F8;border-top:1px solid #C7D0DE}
+.mfr-ai-form input{min-width:0;flex:1;padding:11px 12px;border:1px solid #C7D0DE;border-radius:12px;background:white;color:#0B132B;outline:none}
+.mfr-ai-form button{padding:0 15px;border:0;border-radius:12px;background:#1C2541;color:#F1F4F8;font-weight:800;cursor:pointer}
+.mfr-ai-note{padding:0 12px 10px;background:#F1F4F8;color:#5C667A;font-size:.68rem}
+@media(max-width:680px){
+ nav{justify-content:flex-start;gap:12px}.menu{display:flex;order:0}.logo{order:1;margin-right:auto}.navlinks{top:65px;left:0;right:0}.navright{order:2}.mfr-ai-launch{right:14px;bottom:14px;min-height:52px;padding:10px 15px}.mfr-ai-panel{right:14px;bottom:76px;width:calc(100vw - 28px);height:min(570px,calc(100dvh - 100px))}.footer{padding:22px 0}.footer-inner{align-items:center;flex-direction:row}
+}
+@media(max-width:360px){.mfr-ai-launch{right:10px;bottom:10px}.mfr-ai-panel{right:10px;bottom:70px;width:calc(100vw - 20px)}}
+
+</style>
+</head>
+<body>
+<div class="nav-shell"><nav class="container" aria-label="Main navigation">
+<button class="menu" id="menu" aria-label="Toggle menu" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+<a class="logo" href="#home">MFR<em>.</em></a>
+<div class="navlinks" id="navlinks">
+<a href="#home">Home</a><a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+</div>
+<div class="navright"><a class="navbtn" href="#contact">Let's Connect ↗</a></div>
+</nav></div>
+
+<main>
+<section class="hero" id="home"><div class="container hero-inner">
+<div class="portrait-area reveal">
+<div class="portrait-frame"><img src="https://farhanfano.github.io/my-cv-website/profile.jpg" alt="Professional profile portrait of Muhammad Farhan Ramzan"></div>
+<div class="portrait-badge">Muhammad Farhan Ramzan<small>BS Computer Science Student</small></div>
+<div class="portrait-number" aria-label="Portfolio">MFR</div>
+</div>
+<div class="hero-copy reveal">
+<div class="kicker">Student · Creative Thinker · Future Professional</div>
+<h1>Curiosity into <span>creation.</span></h1>
+<p>I’m <strong>Muhammad Farhan Ramzan</strong>, a BS Computer Science student at MNS University of Engineering and Technology, Multan. I’m building my skills across programming, digital logic, data structures, e-commerce, and creative digital work.</p>
+<div class="hero-actions">
+<a class="btn btn-blue" href="#projects">Explore My Work ↘</a>
+<a class="btn btn-dark" href="https://farhanfano.github.io/my-cv-website/mycv.pdf" target="_blank" rel="noopener">View CV ↗</a>
+<a class="btn btn-light" href="https://farhanfano.github.io/my-cv-website/mycv.pdf" download="Muhammad-Farhan-Ramzan-CV.pdf">Download CV ↓</a>
+</div>
+<div class="hero-meta"><span class="meta-pill">🎓 BSCS · 2025–Present</span><span class="meta-pill">📍 Lodhran, Pakistan</span><span class="meta-pill">📈 CGPA 3.485 / 4.00</span></div>
+</div>
+</div></section>
+
+<div class="strip"><div class="container strip-inner">
+<div class="strip-item"><strong>3.485</strong><span><b>CGPA / 4.00</b>After two semesters</span></div>
+<div class="strip-item"><strong>10+</strong><span><b>Practical Skills</b>Technical & creative tools</span></div>
+<div class="strip-item"><strong>04</strong><span><b>Academic Project Areas</b>Learn by building</span></div>
+<div class="strip-item"><strong>03</strong><span><b>Languages</b>English · Urdu · Saraiki</span></div>
+</div></div>
+
+<section class="section about" id="about"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">ABOUT ME</div><h2 class="section-title">Curious by nature.<br>Practical by choice.</h2></div><p class="section-copy">I’m Muhammad Farhan Ramzan, a BS Computer Science student who learns best by building, testing, and improving things. Alongside my degree, I’m developing practical skills in e-commerce, design, and digital content.</p></div>
+<div class="about-grid">
+<div class="about-main reveal"><div class="kicker">My story</div><p>My name is <strong>Muhammad Farhan Ramzan</strong>. I’m pursuing a Bachelor of Science in Computer Science at <strong>MNS University of Engineering and Technology, Multan</strong>.</p><p>Alongside my studies, I’m interested in graphic design, Microsoft Office, Amazon product research, Shopify store management, and modern digital experiences. My coursework includes C++ fundamentals, Digital Logic Design circuits, basic games using Data Structures concepts, and Assembly Language programs.</p><p>My goal is to grow into a dependable professional who combines technical foundations, creativity, curiosity, and a willingness to keep learning.</p><div class="tagrow"><span class="tag">Curious Learner</span><span class="tag">Problem Solving</span><span class="tag">Creative Thinking</span><span class="tag">Team Collaboration</span></div></div>
+<div class="about-side"><div class="mini-panel reveal"><div class="symbol">✳</div><h3>Technical curiosity</h3><p>Understanding programming, logic circuits, algorithms, and low-level computing through university coursework.</p></div><div class="mini-panel reveal"><div class="symbol">✦</div><h3>Creative practice</h3><p>Exploring Canva, graphic design, presentations, and digital content to communicate ideas clearly.</p></div><div class="mini-panel reveal"><div class="symbol">↗</div><h3>Professional direction</h3><p>Seeking opportunities to gain experience, collaborate with people, and contribute to meaningful work.</p></div></div>
+</div></div></section>
+
+<section class="section education" id="education"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">EDUCATION</div><h2 class="section-title">My academic<br>journey so far.</h2></div><p class="section-copy">From a science background to Computer Science, each stage has helped me strengthen my problem-solving skills and prepare for more hands-on work.</p></div>
+<div class="edu-grid">
+<article class="edu-card reveal"><div class="edu-year">2025 — PRESENT</div><div class="edu-icon">🎓</div><h3>Bachelor of Science in Computer Science</h3><p>MNS University of Engineering and Technology, Multan</p><p><strong>CGPA: 3.485 / 4.00</strong><br>After completing two semesters</p></article>
+<article class="edu-card reveal"><div class="edu-year">2023 — 2025</div><div class="edu-icon">📘</div><h3>Intermediate in Computer Science (ICS)</h3><p>Aspire Group of College, Basti Malook</p><p>BISE Multan<br><strong>986 / 1200 marks</strong></p></article>
+<article class="edu-card reveal"><div class="edu-year">2021 — 2023</div><div class="edu-icon">🏫</div><h3>Matriculation — Science</h3><p>Ikrash Model High School, Basti Malook</p><p>BISE Multan<br><strong>948 / 1100 marks</strong></p></article>
+</div></div></section>
+
+<section class="section skills" id="skills"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">SKILLS & TOOLS</div><h2 class="section-title">Tools I use.<br>Skills I’m building.</h2></div><p class="section-copy">A mix of digital tools and core computing concepts I’m practising through coursework, personal tasks, and independent learning.</p></div>
+<div class="skill-layout"><div class="skill-intro reveal"><div><div class="kicker" style="color:#C7D0DE">My approach</div><h3 style="font-size:1.7rem;line-height:1.15;margin-top:12px">Learn the basics.<br>Build with purpose.</h3><p>I believe strong fundamentals, practice, and clear communication create a foundation for future growth.</p></div><div><div class="huge">MFR.</div><small>Personal learning portfolio</small></div></div>
+<div class="skill-grid">
+<div class="skill-card reveal"><div class="skill-icon">C++</div><b>C++ Fundamentals</b><small>Programming basics</small></div>
+<div class="skill-card reveal"><div class="skill-icon">◈</div><b>Digital Logic Design</b><small>Gates & circuits</small></div>
+<div class="skill-card reveal"><div class="skill-icon">⌘</div><b>Data Structures</b><small>Basic game projects</small></div>
+<div class="skill-card reveal"><div class="skill-icon">▤</div><b>Assembly Language</b><small>Basic programs</small></div>
+<div class="skill-card reveal"><div class="skill-icon">W</div><b>Microsoft Word</b><small>Documents & formatting</small></div>
+<div class="skill-card reveal"><div class="skill-icon">X</div><b>Microsoft Excel</b><small>Spreadsheet basics</small></div>
+<div class="skill-card reveal"><div class="skill-icon">P</div><b>PowerPoint</b><small>Presentations</small></div>
+<div class="skill-card reveal"><div class="skill-icon">✦</div><b>Canva Expert</b><small>Visual design</small></div>
+<div class="skill-card reveal"><div class="skill-icon">✎</div><b>Graphic Design</b><small>Digital visuals</small></div>
+<div class="skill-card reveal"><div class="skill-icon">⌕</div><b>Amazon Product Hunting</b><small>Product & market research</small></div>
+<div class="skill-card reveal"><div class="skill-icon">🛍</div><b>Shopify Operator</b><small>Store management</small></div>
+<div class="skill-card reveal"><div class="skill-icon">◎</div><b>Online Research</b><small>Information gathering</small></div>
+<div class="skill-card reveal"><div class="skill-icon">↔</div><b>Communication</b><small>Clear collaboration</small></div>
+<div class="skill-card reveal"><div class="skill-icon">◷</div><b>Time Management</b><small>Task organization</small></div>
+<div class="skill-card reveal"><div class="skill-icon">✧</div><b>Problem-Solving</b><small>Analytical thinking</small></div>
+</div></div></div></section>
+
+<section class="section projects" id="projects"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">PROJECTS & COURSEWORK</div><h2 class="section-title">Learning the logic<br>behind the build.</h2></div><p class="section-copy">These are study-based projects and lab exercises—not commercial products—created to strengthen my fundamentals one concept at a time.</p></div>
+<div class="project-grid">
+<article class="project-card reveal"><div class="project-top"><div class="project-symbol">⌨</div><span class="project-type">01 · Programming</span></div><h3>C++ Basic Programs</h3><p>Beginner programs to practise coding structure, logical thinking, and problem-solving.</p><ul><li>Variables, data types, and operators</li><li>Conditions, loops, and functions</li><li>Small practice problems</li></ul><div class="project-foot">C++ · Programming Fundamentals</div></article>
+<article class="project-card reveal"><div class="project-top"><div class="project-symbol">◈</div><span class="project-type">02 · Digital Systems</span></div><h3>DLD Circuits</h3><p>Digital Logic Design work that connects logical expressions and Boolean concepts to circuit behaviour.</p><ul><li>Logic gates and truth tables</li><li>Combinational circuit concepts</li><li>Lab diagrams and circuit practice</li></ul><div class="project-foot">Digital Logic Design · Circuit Fundamentals</div></article>
+<article class="project-card reveal"><div class="project-top"><div class="project-symbol">🎮</div><span class="project-type">03 · Data Structures</span></div><h3>Basic Games</h3><p>Simple game projects used to practise program flow, interaction, and foundational data handling.</p><ul><li>Basic game rules and interactions</li><li>Logical flow and data handling</li><li>Learning through iterative testing</li></ul><div class="project-foot">Data Structures · Beginner Game Projects</div></article>
+<article class="project-card reveal"><div class="project-top"><div class="project-symbol">▥</div><span class="project-type">04 · Low-level Computing</span></div><h3>Assembly Language Basics</h3><p>Introductory assembly exercises that help build an understanding of instructions and how programs execute.</p><ul><li>Basic input/output programs</li><li>Arithmetic and registers</li><li>Instructions and procedures</li></ul><div class="project-foot">Assembly Language · Fundamentals</div></article>
+</div><p class="project-note">Portfolio note: these cards describe academic project categories. Add actual screenshots, code links, and demos as each project is ready to show.</p>
+</div></section>
+
+<section class="section experience" id="experience"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">EXPERIENCE</div><h2 class="section-title">Starting out.<br>Ready to contribute.</h2></div><p class="section-copy">I’m at the beginning of my professional journey, bringing curiosity, reliability, and a willingness to learn into entry-level and part-time opportunities.</p></div>
+<div class="exp-grid"><div class="exp-banner reveal"><div><div class="kicker" style="color:#e5dcff">Current status</div><div class="number">Fresh</div><h3 style="font-size:1.3rem;margin-top:8px">Candidate · Entry Level</h3><p>No prior formal job experience yet. I’m motivated to learn, build practical experience, and contribute positively to a professional team.</p></div><div style="margin-top:25px"><span style="background:#F1F4F81b;padding:8px 11px;border-radius:10px;font-size:.78rem">Open to suitable opportunities</span></div></div>
+<div class="exp-detail reveal"><div class="kicker">Strengths & interests</div><h3>What I can bring to a team</h3><p>I am developing a combination of technical foundations, digital productivity skills, creative tools, and an adaptable learning mindset.</p><ul class="checklist"><li>Microsoft Office documents, spreadsheets, and presentations</li><li>Canva, graphic design, and visual content creation</li><li>Amazon product hunting and online research</li><li>Shopify store management and e-commerce interests</li><li>Willingness to learn new tasks and collaborate with others</li><li>Academic practice in C++, DLD, Data Structures, and Assembly</li></ul></div></div>
+</div></section>
+
+<section class="section language" id="languages"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">LANGUAGES</div><h2 class="section-title">Languages I use<br>to connect.</h2></div><p class="section-copy">I can communicate in English, Urdu, and Saraiki.</p></div>
+<div class="language-grid"><div class="lang-card reveal"><div class="lang-mark">En</div><div><h3>English</h3><p>Learning & professional communication</p></div></div><div class="lang-card reveal"><div class="lang-mark">اُ</div><div><h3>Urdu</h3><p>Fluent</p></div></div><div class="lang-card reveal"><div class="lang-mark">س</div><div><h3>Saraiki</h3><p>Fluent</p></div></div></div>
+</div></section>
+
+<section class="section social" id="social"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">CONNECT</div><h2 class="section-title">Find me<br>around the web.</h2></div><p class="section-copy">Explore my profiles and projects, or contact me directly about an opportunity or collaboration.</p></div>
+<div class="social-grid">
+<a class="social-card reveal" href="https://github.com/farhanfano" target="_blank" rel="noopener"><div class="social-icon">GH</div><div><h3>GitHub</h3><p>Code & projects</p></div><span class="social-arrow">↗</span></a>
+<a class="social-card reveal" href="https://youtube.com/@farhanfano_207" target="_blank" rel="noopener"><div class="social-icon">▶</div><div><h3>YouTube</h3><p>@farhanfano_207</p></div><span class="social-arrow">↗</span></a>
+<a class="social-card reveal" href="https://www.linkedin.com/" target="_blank" rel="noopener"><div class="social-icon">in</div><div><h3>LinkedIn</h3><p>Professional network</p></div><span class="social-arrow">↗</span></a>
+</div><p style="color:#536c77;font-size:.78rem;margin-top:14px">LinkedIn opens the main LinkedIn website; replace it with your exact profile URL when ready.</p>
+</div></section>
+
+<section class="section review" id="reviews"><div class="container">
+<div class="headrow reveal"><div><div class="kicker">VISITOR REVIEWS</div><h2 class="section-title">A few words<br>go a long way.</h2></div><p class="section-copy">Seen something you like—or have a useful suggestion? Leave a rating and a short note.</p></div>
+<div class="review-layout">
+<div class="review-form-panel reveal"><h3>Write a review</h3><p style="font-size:.85rem;color:var(--muted);margin-top:5px">Share your thoughts in a few words.</p>
+<form id="reviewForm">
+<div class="form-field"><label for="reviewName">Your name</label><input id="reviewName" maxlength="60" placeholder="Enter your name" required></div>
+<div class="form-field"><label>Your rating</label><div class="stars" id="stars" role="radiogroup" aria-label="Choose rating"><button type="button" class="star" data-rate="1" aria-label="1 star">★</button><button type="button" class="star" data-rate="2" aria-label="2 stars">★</button><button type="button" class="star" data-rate="3" aria-label="3 stars">★</button><button type="button" class="star" data-rate="4" aria-label="4 stars">★</button><button type="button" class="star active" data-rate="5" aria-label="5 stars">★</button></div></div>
+<div class="form-field"><label for="reviewText">Your review</label><textarea id="reviewText" maxlength="700" placeholder="What did you like? What could be improved?" required></textarea><div style="font-size:.72rem;color:var(--muted);text-align:right"><span id="chars">0</span>/700</div></div>
+<button class="btn btn-blue review-submit" type="submit">Submit Review ↗</button><p class="review-status" id="reviewStatus" aria-live="polite">Your review is saved in this browser on this device.</p>
+</form></div>
+<div class="review-list-panel reveal"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><h3>Visitor reviews</h3><p style="font-size:.82rem;color:var(--muted)">Recent feedback</p></div><span class="tag" id="reviewCount">0 reviews</span></div><div class="review-list" id="reviewList"><div class="empty-reviews">No reviews yet — be the first to share your feedback.</div></div><p class="review-disclaimer">This static site saves reviews in the current browser only. To publish reviews for every visitor across devices, connect a shared database and add moderation/spam protection.</p></div>
+</div></div></section>
+
+<section class="section contact" id="contact"><div class="container">
+<div class="contact-panel reveal"><div><div class="kicker">CONTACT</div><h2 class="section-title">Have a project<br>or opportunity?</h2><p class="section-copy">I’m open to entry-level and part-time roles, digital projects, collaboration, and opportunities to keep learning.</p><div class="contact-buttons">
+<a class="btn btn-lime" href="mailto:farhanfano608@gmail.com">✉ Email Me ↗</a>
+<a class="btn btn-light" href="https://wa.me/923042777279?text=Hello%20Farhan%2C%20I%20visited%20your%20portfolio." target="_blank" rel="noopener">☏ WhatsApp ↗</a>
+<a class="btn" style="border:1px solid #40506e;color:white" href="https://farhanfano.github.io/my-cv-website/mycv.pdf" target="_blank" rel="noopener">View CV ↗</a>
+</div></div>
+<div class="contact-details">
+<div class="contact-detail"><div class="sym">✉</div><div><small>Email</small><strong><a href="mailto:farhanfano608@gmail.com" style="color:inherit;text-decoration:none">farhanfano608@gmail.com</a></strong></div></div>
+<div class="contact-detail"><div class="sym">☎</div><div><small>Phone / WhatsApp</small><strong>+92 304 2777279</strong></div></div>
+<div class="contact-detail"><div class="sym">⌖</div><div><small>Location</small><strong>Makhdoom Ali, 387/WB, Dunyapur, Lodhran, Punjab, Pakistan</strong></div></div>
+<div class="contact-detail"><div class="sym">⌂</div><div><small>University</small><strong>MNS UET, Multan</strong></div></div>
+</div></div>
+</div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> Muhammad Farhan Ramzan. All rights reserved.</span></div></footer>
+
+<script>
+const menu=document.getElementById('menu'), navlinks=document.getElementById('navlinks');
+menu.addEventListener('click',()=>{const open=navlinks.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.classList.toggle('is-open',open)});
+navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navlinks.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.classList.remove('is-open')}));
+document.getElementById('year').textContent=new Date().getFullYear();
+const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');revealObserver.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+const form=document.getElementById('reviewForm'), nameInput=document.getElementById('reviewName'), textInput=document.getElementById('reviewText');
+const starButtons=[...document.querySelectorAll('.star')], reviewList=document.getElementById('reviewList'), reviewCount=document.getElementById('reviewCount'), status=document.getElementById('reviewStatus');
+let rating=5;
+function chooseRating(value){rating=value;starButtons.forEach(b=>{b.classList.toggle('active',Number(b.dataset.rate)<=value);b.setAttribute('aria-checked',String(Number(b.dataset.rate)===value))})}
+starButtons.forEach(b=>b.addEventListener('click',()=>chooseRating(Number(b.dataset.rate))));
+textInput.addEventListener('input',()=>document.getElementById('chars').textContent=textInput.value.length);
+function loadReviews(){try{return JSON.parse(localStorage.getItem('mfrPortfolioReviewsV3')||'[]')}catch(e){return []}}
+function renderReviews(){
+ const reviews=loadReviews();reviewCount.textContent=reviews.length+' review'+(reviews.length===1?'':'s');reviewList.replaceChildren();
+ if(!reviews.length){const empty=document.createElement('div');empty.className='empty-reviews';empty.textContent='No reviews yet — be the first to share your feedback.';reviewList.appendChild(empty);return}
+ reviews.slice().reverse().forEach(r=>{const item=document.createElement('article');item.className='review-item';const head=document.createElement('div');head.className='review-item-head';const name=document.createElement('h4');name.textContent=r.name;const date=document.createElement('span');date.className='review-date';date.textContent=r.date;head.append(name,date);const stars=document.createElement('div');stars.className='review-stars';stars.textContent='★'.repeat(r.rating)+'☆'.repeat(5-r.rating);const message=document.createElement('p');message.textContent=r.text;item.append(head,stars,message);reviewList.appendChild(item)});
+}
+form.addEventListener('submit',e=>{e.preventDefault();const name=nameInput.value.trim(),text=textInput.value.trim();if(!name||!text){status.textContent='Please enter your name and review.';return}
+ const reviews=loadReviews();reviews.push({name,text,rating,date:new Date().toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'})});
+ try{localStorage.setItem('mfrPortfolioReviewsV3',JSON.stringify(reviews));form.reset();chooseRating(5);document.getElementById('chars').textContent='0';status.textContent='Thank you! Your review is now displayed on this browser.';renderReviews()}catch(err){status.textContent='Could not save review. Please check browser storage settings.'}
+});
+chooseRating(5);renderReviews();
+</script>
+
+<!-- MFR AI: portfolio Q&A demo. For a true LLM, connect the secure backend endpoint noted below. -->
+<button class="mfr-ai-launch" id="mfrAiLaunch" type="button" aria-label="Open MFR AI portfolio assistant">
+  <span class="ai-mark">AI</span><span>MFR AI</span>
+</button>
+<section class="mfr-ai-panel" id="mfrAiPanel" aria-label="MFR AI Portfolio Assistant" aria-hidden="true">
+  <header class="mfr-ai-head">
+    <div class="mfr-ai-avatar">AI</div>
+    <div><strong>MFR AI</strong><small>Portfolio Assistant · Demo mode</small></div>
+    <button class="mfr-ai-close" id="mfrAiClose" aria-label="Close chat" type="button">×</button>
+  </header>
+  <div class="mfr-ai-messages" id="mfrAiMessages" aria-live="polite">
+    <div class="mfr-ai-msg bot">Hi! I’m MFR AI, Farhan’s portfolio assistant. Ask me about his education, skills, projects, or contact details.</div>
+  </div>
+  <div class="mfr-ai-quick">
+    <button type="button" data-ai-question="What are Farhan's skills?">Skills</button>
+    <button type="button" data-ai-question="Tell me about Farhan's education.">Education</button>
+    <button type="button" data-ai-question="What projects has Farhan worked on?">Projects</button>
+    <button type="button" data-ai-question="How can I contact Farhan?">Contact</button>
+  </div>
+  <form class="mfr-ai-form" id="mfrAiForm">
+    <input id="mfrAiInput" type="text" placeholder="Ask about Farhan…" autocomplete="off" aria-label="Ask MFR AI a question" required>
+    <button type="submit">Send</button>
+  </form>
+  <div class="mfr-ai-note">Portfolio Q&amp;A demo. Live AI model integration requires a secure API backend.</div>
+</section>
+<script>
+(function(){
+  const launch=document.getElementById('mfrAiLaunch');
+  const panel=document.getElementById('mfrAiPanel');
+  const close=document.getElementById('mfrAiClose');
+  const messages=document.getElementById('mfrAiMessages');
+  const form=document.getElementById('mfrAiForm');
+  const input=document.getElementById('mfrAiInput');
+  function toggle(open){
+    panel.classList.toggle('open',open);
+    panel.setAttribute('aria-hidden',String(!open));
+    if(open) setTimeout(()=>input.focus(),60);
+  }
+  launch.addEventListener('click',()=>toggle(!panel.classList.contains('open')));
+  close.addEventListener('click',()=>toggle(false));
+  function addMessage(text,who){
+    const el=document.createElement('div');
+    el.className='mfr-ai-msg '+who;
+    el.textContent=text;
+    messages.appendChild(el);
+    messages.scrollTop=messages.scrollHeight;
+  }
+  function answer(question){
+    const q=question.toLowerCase();
+    if(/skill|canva|shopify|amazon|excel|powerpoint|word|graphic|design/.test(q))
+      return "Farhan’s listed skills include Shopify store operations, Amazon product research, Canva, graphic design, Microsoft Word, PowerPoint, Excel, online research, and communication. He is also learning core programming and computing concepts.";
+    if(/education|degree|university|cgpa|study|semester|school|college|matric|ics/.test(q))
+      return "Farhan is studying BS Computer Science at Muhammad Nawaz Sharif University of Engineering and Technology, Multan (2025–present). His CGPA after two semesters is 3.485/4.00. He completed ICS at Aspire Group of College, Basti Malook (986/1200), and Matric Science at Ikrash Model High School, Basti Malook (948/1100).";
+    if(/project|cpp|c\+\+|dld|assembly|data structure|game|coursework/.test(q))
+      return "Farhan’s academic practice areas include C++ fundamentals, Digital Logic Design (DLD) circuits, basic games using Data Structures concepts, and Assembly Language lab exercises. These are learning projects and coursework.";
+    if(/contact|email|phone|whatsapp|hire|job|work|available|freelance|part.?time/.test(q))
+      return "You can contact Farhan at farhanfano608@gmail.com or by phone/WhatsApp at +92 304 2777279. He is interested in entry-level and part-time opportunities, digital projects, and collaboration.";
+    if(/language|speak/.test(q))
+      return "Farhan lists English, Urdu, and Saraiki as his languages.";
+    if(/location|city|live|address/.test(q))
+      return "Farhan’s portfolio lists his location as Makhdoom Ali, 387/WB, Dunyapur, Lodhran, Punjab, Pakistan.";
+    if(/who|about|farhan|profile|introduce/.test(q))
+      return "Muhammad Farhan Ramzan is a BS Computer Science student at MNS-UET Multan. He is developing practical skills in e-commerce, digital design, and computing fundamentals.";
+    return "I don’t have a confirmed answer to that in Farhan’s portfolio information yet. You can ask me about his education, skills, projects, languages, or contact details—or contact him directly at farhanfano608@gmail.com.";
+  }
+  function ask(question){
+    const clean=question.trim();
+    if(!clean) return;
+    addMessage(clean,'user');
+    input.value='';
+    addMessage(answer(clean),'bot');
+  }
+  form.addEventListener('submit',e=>{e.preventDefault();ask(input.value);});
+  document.querySelectorAll('[data-ai-question]').forEach(btn=>btn.addEventListener('click',()=>ask(btn.dataset.aiQuestion)));
+})();
+</script>
+
+</body>
+</html>
