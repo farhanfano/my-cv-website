@@ -1,1 +1,115 @@
-print(we will back shotly)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MFR | Coming Soon</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #050816, #102c50, #087f8c);
+    overflow: hidden;
+}
+
+.container {
+    padding: 30px;
+    max-width: 700px;
+    animation: appear 1.2s ease;
+}
+
+.logo {
+    font-size: 65px;
+    font-weight: 900;
+    letter-spacing: 10px;
+    color: #55e6ff;
+    text-shadow: 0 0 30px #00cfff;
+    margin-bottom: 20px;
+}
+
+.line {
+    width: 100px;
+    height: 4px;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    background: #55e6ff;
+}
+
+h1 {
+    font-size: clamp(30px, 6vw, 52px);
+    margin-bottom: 20px;
+}
+
+h1 span {
+    color: #55e6ff;
+}
+
+p {
+    color: #d5e5f5;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.loader {
+    margin: 35px auto 20px;
+    width: 45px;
+    height: 45px;
+    border: 4px solid #ffffff30;
+    border-top: 4px solid #55e6ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.footer {
+    margin-top: 40px;
+    font-size: 12px;
+    color: #a9c5dc;
+    letter-spacing: 2px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">MFR</div>
+        <div class="line"></div>
+
+        <h1>We're <span>Working</span><br>On Something Amazing</h1>
+
+        <p>
+            Our website is currently under maintenance.<br>
+            We're making things better for you.<br>
+            <strong>We'll Be Back Shortly!</strong>
+        </p>
+
+        <div class="loader"></div>
+
+        <p>Thank you for your patience and support.</p>
+
+        <div class="footer">
+            © 2026 MFR. ALL RIGHTS RESERVED.
+        </div>
+    </div>
+</body>
+</html>
