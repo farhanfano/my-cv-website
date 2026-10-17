@@ -1,115 +1,538 @@
-<!DOCTYPE html>
+from pathlib import Path
+
+html = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MFR | Coming Soon</title>
+<title>Muhammad Farhan Ramzan | Portfolio</title>
 
 <style>
+:root {
+    --navy: #0B132B;
+    --midnight: #1C2541;
+    --silver: #C7D0DE;
+    --white: #FFFFFF;
+}
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
-
 body {
     font-family: Arial, sans-serif;
-    min-height: 100vh;
+    background: var(--silver);
+    color: var(--navy);
+    line-height: 1.7;
+}
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    gap: 18px;
+    padding: 15px 6%;
+    background: var(--navy);
     color: white;
-    background: linear-gradient(135deg, #050816, #102c50, #087f8c);
-    overflow: hidden;
 }
-
-.container {
-    padding: 30px;
-    max-width: 700px;
-    animation: appear 1.2s ease;
+.menu-button {
+    order: -1;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--silver);
+    border-radius: 6px;
+    padding: 5px 12px;
+    font-size: 24px;
+    cursor: pointer;
 }
-
-.logo {
-    font-size: 65px;
-    font-weight: 900;
-    letter-spacing: 10px;
-    color: #55e6ff;
-    text-shadow: 0 0 30px #00cfff;
-    margin-bottom: 20px;
+.brand {
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
-
-.line {
-    width: 100px;
-    height: 4px;
-    margin: 0 auto 30px;
+nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    min-width: 190px;
+    padding: 18px;
+    background: var(--midnight);
     border-radius: 10px;
-    background: #55e6ff;
 }
-
-h1 {
-    font-size: clamp(30px, 6vw, 52px);
-    margin-bottom: 20px;
+nav.open {
+    display: grid;
+    gap: 10px;
 }
-
-h1 span {
-    color: #55e6ff;
+nav a {
+    color: white;
+    text-decoration: none;
 }
-
-p {
-    color: #d5e5f5;
-    font-size: 17px;
-    line-height: 1.8;
+nav a:hover {
+    color: var(--silver);
 }
-
-.loader {
-    margin: 35px auto 20px;
-    width: 45px;
-    height: 45px;
-    border: 4px solid #ffffff30;
-    border-top: 4px solid #55e6ff;
+section {
+    padding: 65px 8%;
+    scroll-margin-top: 75px;
+}
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    flex-wrap: wrap;
+    min-height: 75vh;
+    background: var(--navy);
+    color: white;
+}
+.hero-text {
+    flex: 1 1 300px;
+}
+.hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.2;
+    margin: 12px 0;
+}
+.hero p {
+    color: var(--silver);
+    margin-bottom: 18px;
+}
+.profile-photo {
+    display: block;
+    width: 240px;
+    height: 240px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: 5px solid var(--silver);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
 }
-
-.footer {
-    margin-top: 40px;
-    font-size: 12px;
-    color: #a9c5dc;
-    letter-spacing: 2px;
+.button {
+    display: inline-block;
+    margin: 5px 5px 5px 0;
+    padding: 10px 18px;
+    background: var(--silver);
+    color: var(--navy);
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
 }
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
+.section-title {
+    font-size: 30px;
+    margin-bottom: 22px;
 }
-
-@keyframes appear {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
+.dark-section {
+    background: var(--midnight);
+    color: white;
+}
+.dark-section .section-title {
+    color: white;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+.card {
+    background: white;
+    color: var(--navy);
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #d8deea;
+    overflow-wrap: anywhere;
+}
+.dark-section .card {
+    background: var(--navy);
+    color: white;
+    border-color: #35415f;
+}
+.card h3 {
+    margin-bottom: 8px;
+}
+.skill {
+    display: inline-block;
+    background: var(--silver);
+    color: var(--navy);
+    padding: 7px 13px;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+footer {
+    padding: 18px;
+    text-align: center;
+    background: var(--navy);
+    color: var(--silver);
+}
+/* Fixed chatbot: remains in the same screen position */
+#ai-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2000;
+    border: 2px solid var(--silver);
+    background: var(--midnight);
+    color: white;
+    padding: 13px 20px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 20px #0004;
+}
+#chat-box {
+    display: none;
+    position: fixed;
+    right: 15px;
+    bottom: 82px;
+    width: min(350px, calc(100vw - 30px));
+    height: 420px;
+    max-height: 65vh;
+    z-index: 2000;
+    background: white;
+    border: 2px solid var(--midnight);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px #0004;
+}
+#chat-box.open {
+    display: flex;
+    flex-direction: column;
+}
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--navy);
+    color: white;
+    padding: 13px;
+}
+#close-chat {
+    background: transparent;
+    color: white;
+    border: 0;
+    font-size: 24px;
+    cursor: pointer;
+}
+#chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px;
+    color: var(--navy);
+}
+.message {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: var(--silver);
+}
+.user-message {
+    background: var(--midnight);
+    color: white;
+}
+#chat-form {
+    display: flex;
+    gap: 7px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+#chat-input {
+    min-width: 0;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 7px;
+}
+#chat-form button {
+    padding: 10px 13px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--navy);
+    color: white;
+    cursor: pointer;
+}
+@media (max-width: 600px) {
+    section {
+        padding: 45px 6%;
+    }
+    .hero {
+        text-align: center;
+    }
+    .profile-photo {
+        width: 190px;
+        height: 190px;
+        margin: auto;
+    }
 }
 </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="logo">MFR</div>
-        <div class="line"></div>
+<header>
+    <button class="menu-button" id="menu-button"
+        aria-label="Open menu" aria-expanded="false">☰</button>
+    <div class="brand">MFR PORTFOLIO</div>
+    <nav id="navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-        <h1>We're <span>Working</span><br>On Something Amazing</h1>
+<main>
+<section class="hero" id="home">
+    <div class="hero-text">
+        <p>BS COMPUTER SCIENCE STUDENT</p>
+        <h1>Muhammad Farhan Ramzan</h1>
+        <p>Shopify Developer | Canva Designer | Amazon Product Research</p>
+        <a class="button" href="#contact">Contact Me</a>
+        <a class="button"
+           href="https://farhanfano.github.io/my-cv-website/mycv.pdf"
+           target="_blank" rel="noopener">View My CV</a>
+    </div>
+    <div>
+        <img class="profile-photo"
+             src="https://farhanfano.github.io/my-cv-website/profile.jpg"
+             alt="Muhammad Farhan Ramzan">
+    </div>
+</section>
 
-        <p>
-            Our website is currently under maintenance.<br>
-            We're making things better for you.<br>
-            <strong>We'll Be Back Shortly!</strong>
-        </p>
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+        I am a BS Computer Science student at Muhammad Nawaz Sharif
+        University of Engineering and Technology, Multan. I am interested
+        in Shopify store management, website development, Canva, graphic
+        design and Amazon product research. I enjoy learning new skills
+        and building practical projects.
+    </p>
+</section>
 
-        <div class="loader"></div>
+<section class="dark-section" id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="cards">
+        <article class="card">
+            <h3>BS Computer Science</h3>
+            <p>MNS University of Engineering and Technology, Multan</p>
+            <p>2025 – Present</p>
+            <p>CGPA: 3.485/4.00 after two semesters</p>
+        </article>
+        <article class="card">
+            <h3>Intermediate in ICS</h3>
+            <p>Aspire Group of College, Basti Malook</p>
+            <p>2023 – 2025</p>
+            <p>Marks: 986/1200</p>
+        </article>
+        <article class="card">
+            <h3>Matriculation in Science</h3>
+            <p>Ikrash Model High School, Basti Malook</p>
+            <p>2021 – 2023</p>
+            <p>Marks: 948/1100</p>
+        </article>
+    </div>
+</section>
 
-        <p>Thank you for your patience and support.</p>
+<section id="skills">
+    <h2 class="section-title">Professional Skills</h2>
+    <div>
+        <span class="skill">Shopify Store Management</span>
+        <span class="skill">Shopify Website Design</span>
+        <span class="skill">Amazon Product Hunting</span>
+        <span class="skill">Canva</span>
+        <span class="skill">Graphic Design</span>
+        <span class="skill">Microsoft Word</span>
+        <span class="skill">PowerPoint</span>
+        <span class="skill">Excel</span>
+        <span class="skill">Online Research</span>
+        <span class="skill">Communication</span>
+        <span class="skill">Problem Solving</span>
+        <span class="skill">Time Management</span>
+    </div>
+</section>
 
-        <div class="footer">
-            © 2026 MFR. ALL RIGHTS RESERVED.
+<section class="dark-section" id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="cards">
+        <article class="card">
+            <h3>Shopify Store Projects</h3>
+            <p>Practice in storefront design, store setup and product listings.</p>
+        </article>
+        <article class="card">
+            <h3>C++ Programming</h3>
+            <p>Basic programming exercises and problem-solving practice.</p>
+        </article>
+        <article class="card">
+            <h3>Digital Logic Design</h3>
+            <p>Basic digital circuits and logic design exercises.</p>
+        </article>
+        <article class="card">
+            <h3>Assembly Language</h3>
+            <p>Introductory assembly programs and lab work.</p>
+        </article>
+        <article class="card">
+            <h3>Data Structures</h3>
+            <p>Programming exercises and basic game projects.</p>
+        </article>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="cards">
+        <article class="card">
+            <h3>Email</h3>
+            <p>farhanfano608@gmail.com</p>
+            <a class="button" href="mailto:farhanfano608@gmail.com">
+                Email Me
+            </a>
+        </article>
+        <article class="card">
+            <h3>Phone / WhatsApp</h3>
+            <a href="https://wa.me/923042777279">+92 304 2777279</a>
+        </article>
+        <article class="card">
+            <h3>YouTube</h3>
+            <a href="https://youtube.com/@farhanfano_207"
+               target="_blank" rel="noopener">Visit My Channel</a>
+        </article>
+        <article class="card">
+            <h3>Location</h3>
+            <p>Dunyapur, Lodhran, Punjab, Pakistan</p>
+        </article>
+    </div>
+</section>
+</main>
+
+<footer>
+    <p>© 2026 Muhammad Farhan Ramzan. All Rights Reserved.</p>
+</footer>
+
+<button id="ai-button" aria-controls="chat-box"
+        aria-expanded="false">✦ MFR AI</button>
+
+<div id="chat-box" role="dialog" aria-label="MFR AI Chat">
+    <div class="chat-header">
+        <strong>MFR AI</strong>
+        <button id="close-chat" aria-label="Close chat">×</button>
+    </div>
+    <div id="chat-messages" aria-live="polite">
+        <div class="message">
+            Hi! I am MFR AI. Ask me about Farhan's education, skills,
+            projects or contact details.
         </div>
     </div>
+    <form id="chat-form">
+        <input id="chat-input" type="text"
+               placeholder="Ask a question..." required>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+<script>
+const menuButton = document.getElementById("menu-button");
+const navigation = document.getElementById("navigation");
+
+menuButton.addEventListener("click", () => {
+    const opened = navigation.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(opened));
+});
+
+navigation.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navigation.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+    });
+});
+
+const aiButton = document.getElementById("ai-button");
+const chatBox = document.getElementById("chat-box");
+const closeChat = document.getElementById("close-chat");
+const chatForm = document.getElementById("chat-form");
+const chatInput = document.getElementById("chat-input");
+const messages = document.getElementById("chat-messages");
+
+function toggleChat(open) {
+    chatBox.classList.toggle("open", open);
+    aiButton.setAttribute("aria-expanded", String(open));
+    if (open) chatInput.focus();
+}
+
+aiButton.addEventListener("click", () => {
+    toggleChat(!chatBox.classList.contains("open"));
+});
+closeChat.addEventListener("click", () => toggleChat(false));
+
+function addMessage(text, isUser) {
+    const item = document.createElement("div");
+    item.className = "message" + (isUser ? " user-message" : "");
+    item.textContent = text;
+    messages.appendChild(item);
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function getAnswer(question) {
+    const q = question.toLowerCase();
+
+    if (/skill|canva|shopify|amazon|excel|design/.test(q))
+        return "Farhan's skills include Shopify store management, Canva, graphic design, Amazon product research, Word, PowerPoint and Excel.";
+
+    if (/education|university|study|degree/.test(q))
+        return "Farhan is studying BS Computer Science at MNS University of Engineering and Technology, Multan, from 2025.";
+
+    if (/cgpa|gpa/.test(q))
+        return "Farhan's CGPA is 3.485/4.00 after two semesters.";
+
+    if (/project|assembly|cpp|c\+\+|data structure|dld/.test(q))
+        return "Farhan has practiced C++ basics, Digital Logic Design, Assembly Language and Data Structures projects.";
+
+    if (/contact|email|phone|hire/.test(q))
+        return "Email: farhanfano608@gmail.com | Phone: +92 304 2777279";
+
+    if (/experience|job/.test(q))
+        return "Farhan is an early-career candidate building practical skills in Shopify, design and online research.";
+
+    if (/language/.test(q))
+        return "Farhan speaks English, Urdu and Saraiki.";
+
+    if (/location|where/.test(q))
+        return "Farhan is based in the Dunyapur, Lodhran area of Punjab, Pakistan.";
+
+    if (/matric|school/.test(q))
+        return "Farhan completed Matric Science with 948/1100 marks at Ikrash Model High School, Basti Malook.";
+
+    if (/ics|college/.test(q))
+        return "Farhan completed ICS at Aspire Group of College, Basti Malook, with 986/1200 marks.";
+
+    if (/about|who is farhan|profile/.test(q))
+        return "Muhammad Farhan Ramzan is a BS Computer Science student interested in Shopify, Canva, Amazon research and digital design.";
+
+    return "I can answer basic questions about Farhan's education, skills, projects and contact details. Email farhanfano608@gmail.com for more information.";
+}
+
+chatForm.addEventListener("submit", event => {
+    event.preventDefault();
+    const question = chatInput.value.trim();
+    if (!question) return;
+    addMessage(question, true);
+    chatInput.value = "";
+    addMessage(getAnswer(question), false);
+});
+</script>
 </body>
 </html>
+"""
+
+output_file = Path("MFR_AI_Portfolio.html")
+output_file.write_text(html, encoding="utf-8")
+
+print("Website created successfully!")
+print(f"File location: {output_file.resolve()}")
+print("Open MFR_AI_Portfolio.html in your browser.")
